@@ -1,0 +1,20 @@
+[user]
+	name = Arumugam J
+[difftool]
+	config = false
+	prompt = false
+[alias]
+	d = difftool
+	c = "commit -a"
+	cm = "commit -am"
+	st = status
+	lg = log --oneline --graph
+	showtrackedignored = ls-files -i --exclude-standard
+[push]
+	default = simple
+[credential]
+	helper = store
+[core]
+	quotepath = false
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/

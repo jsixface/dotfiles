@@ -1,0 +1,22 @@
+snippet log "Log a specific value" b
+fmt.Printf("### $1 -> %+v\n", $1)
+endsnippet
+
+snippet errf "Log a fatal error" i
+if err != nil {
+	log.Fatal(err)
+}
+endsnippet
+
+snippet errv "Return WithStack if error" i
+if err != nil {
+	return ${1:nil}, errors.WithStack(err)
+}
+endsnippet
+
+snippet bfunc "Buffalo Function" i
+func $1(c buffalo.Context) error {
+	$2
+}
+endsnippet
+

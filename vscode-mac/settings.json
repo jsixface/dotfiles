@@ -1,0 +1,30 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 14,
+    "extensions.ignoreRecommendations": true,
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "vendor/": true
+    },
+    // use `go env GOROOT` to get the root after brew update 
+    "go.goroot": "/usr/local/opt/go/libexec",
+    "terminal.integrated.fontSize": 15,
+    "window.nativeTabs": true,
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "zenMode.hideTabs": false,
+    "files.associations": {
+        "*.tmTheme": "json"
+    },
+    "workbench.colorTheme": "Monokai Dimmed",
+    "git.autofetch": true,
+    "go.formatTool": "gofmt",
+    "go.gopath": "~/go",
+    "go.useLanguageServer": true
+}

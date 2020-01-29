@@ -1,0 +1,37 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "editor.fontSize": 15,
+  "editor.rulers": [
+    100
+  ],
+  "editor.wordWrap": "on",
+  "extensions.ignoreRecommendations": false,
+  "files.autoSave": "afterDelay",
+  "files.eol": "\n",
+  "git.enableSmartCommit": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "window.zoomLevel": 0,
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#666"
+  },
+  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.iconTheme": "vs-seti",
+  "workbench.startupEditor": "newUntitledFile",
+  "zenMode.hideTabs": false,
+  "python.formatting.provider": "yapf",
+  "jupyter.appendResults": true,
+  "python.autoComplete.addBrackets": true,
+  "python.autoComplete.preloadModules": [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "sklearn"
+  ],
+  "python.workspaceSymbols.exclusionPatterns": [
+  ],
+  "python.autoComplete.extraPaths": [
+    "${workspaceRoot}/lib/python3.6/site-packages/"
+  ]
+}
