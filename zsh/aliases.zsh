@@ -24,7 +24,7 @@ alias ll='ls -lF'
 alias lt='ls -lFrt'
 alias la='ls -al'
 
-if [[ `which exa` ]]
+if [[ `which exa > /dev/null` ]]
 then
 	alias ls='exa'
 	alias lrt='ls -lrt modified'
