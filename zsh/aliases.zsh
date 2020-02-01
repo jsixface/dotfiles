@@ -27,12 +27,13 @@ alias la='ls -al'
 if [[ `which exa > /dev/null` ]]
 then
 	alias ls='exa'
-	alias lrt='ls -lrt modified'
+	alias lrt='ls -l --sort new'
 fi
 
 alias gca='git commit -a'
 alias git='git --no-pager'
 alias gits='git status -bs'
+alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
 
 alias ubuntu-update='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
