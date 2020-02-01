@@ -23,7 +23,6 @@ endif
 " let &rtp = &rtp . ',' . s:editor_root . '/bundle/vimplug/'
 call plug#begin(s:editor_root . '/plugged')
 
-" let Vundle manage Vundle, required
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': 'gocode/nvim/symlink.sh' }
 Plug 'fatih/vim-go'
 
@@ -35,7 +34,13 @@ Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'tpope/vim-fugitive'
 

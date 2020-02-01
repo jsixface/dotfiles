@@ -11,4 +11,10 @@ ln -vsf ${_curr_dir}/bash_aliases ~/.bash_aliases
 
 ln -vsf ${_curr_dir}/gitconfig ~/.gitconfig
 
-[[ -d ~/.oh-my-zsh ]] && ln -vsf ${_curr_dir}/zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh 
+if [[ -d ~/.oh-my-zsh ]] 
+then
+	ln -vsf ${_curr_dir}/zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh 
+	ln -vsf ${_curr_dir}/zsh/custom.zsh ~/.oh-my-zsh/custom/custom.zsh
+fi
+
+
