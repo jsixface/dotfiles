@@ -1,0 +1,25 @@
+#!/bin/bash
+[[ $# != 1 ]] && echo "input file missing" && exit 1
+
+fil="$1"
+tmp=`mktemp`
+grep -v "#" "$fil" > $tmp
+i=0
+
+pls=$( basename $1 | cut -d. -f1).pls
+
+echo "Writing to $pls file"
+echo "[playlist]" > $pls
+while read song 
+do
+	i=$(( $i + 1 ))
+	song=`basename "$song"`
+	echo "File$i=$song" >> $pls
+#	echo "File$i=$song" 
+done < $tmp
+
+echo "NumberOfEntries=$i" >> $pls
+echo "Version=2" >> $pls
+
+rm $tmp
+
