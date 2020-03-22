@@ -23,8 +23,7 @@ endif
 " let &rtp = &rtp . ',' . s:editor_root . '/bundle/vimplug/'
 call plug#begin(s:editor_root . '/plugged')
 
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': 'gocode/nvim/symlink.sh' }
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
