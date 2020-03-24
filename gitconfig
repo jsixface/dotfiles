@@ -7,7 +7,7 @@
 	d = difftool
 	c = "commit -a"
 	cm = "commit -am"
-	st = status
+	st = "status -bs"
 	lg = log --oneline --graph
 	showtrackedignored = ls-files -i --exclude-standard
 [push]
