@@ -1,17 +1,14 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('nvim')
-    if has('win32')
-        let s:editor_root=expand("$LOCALAPPDATA/nvim/site")
-    else
-        let s:editor_root=expand("~/.local/share/nvim/site")
-    endif
+	let s:editor_root=expand("~/.local/share/nvim/site")
 else
     let s:editor_root=expand("~/.vim")
 endif
 
-" Setting up Vundle - the vim plugin bundler
+" Setting up VimPlug - the vim plugin bundler
 let vimplug_installed=1
 let vimplug_vim=s:editor_root . '/autoload/plug.vim'
+
 if !filereadable(vimplug_vim)
     echo "Installing vimplug.."
     echo ""
@@ -20,15 +17,18 @@ if !filereadable(vimplug_vim)
 endif
 
 " set the runtime path to include vimplug and initialize
-" let &rtp = &rtp . ',' . s:editor_root . '/bundle/vimplug/'
 call plug#begin(s:editor_root . '/plugged')
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+if executable('rg')
+  Plug 'mileszs/ack.vim'
+  let g:ackprg = 'rg --vimgrep'
+endif
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -40,17 +40,18 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 Plug 'tpope/vim-fugitive'
 
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
-filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if vimplug_installed == 0
     echo "Installing Bundles, please ignore key map error messages"
     echo ""
     :PlugInstall
 endif
+
 

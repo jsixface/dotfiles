@@ -1,9 +1,12 @@
 " Settings for Go related stuff
 
-au FileType go map <Leader>d :GoDoc<enter>
-au FileType go map <Leader>f :GoFmt<enter>
+au FileType go map <F1> :GoDoc<enter>
+au FileType go map <F8> :GoFmt<enter>
 
 set updatetime=100
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1

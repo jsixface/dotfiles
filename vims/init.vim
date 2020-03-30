@@ -1,10 +1,7 @@
-if has('win32')
-    let $VIMRT=expand("$LOCALAPPDATA/nvim")
-else
-    let $VIMRT=expand("$HOME/.config/nvim")
-endif
+let $VIMRT=expand("$HOME/.config/nvim")
 
 source $VIMRT/plain.vim
+source $VIMRT/keys.vim
 source $VIMRT/plugins.vim
 
 source $VIMRT/airline.vim

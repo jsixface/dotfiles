@@ -36,7 +36,7 @@ alias gits='git status -bs'
 alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
 
-alias ubuntu-update='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
+alias ubuntu-update='sudo apt update && apt list --upgradable && sudo apt upgrade -y && sudo apt autoremove -y'
 alias rf="rm -rf"
 
 

@@ -1,5 +1,6 @@
-" Settings for go-code deoplete-go
-let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
+" Settings 
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#use_cache = 1
 
