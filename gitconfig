@@ -18,3 +18,5 @@
 	quotepath = false
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
+[diff]
+	tool = vimdiff
