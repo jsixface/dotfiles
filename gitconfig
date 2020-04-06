@@ -1,5 +1,3 @@
-[user]
-	name = Arumugam J
 [difftool]
 	config = false
 	prompt = false
@@ -8,7 +6,7 @@
 	c = "commit -a"
 	cm = "commit -am"
 	st = "status -bs"
-	lg = log --oneline --graph
+	lg = log --oneline --graph -20
 	showtrackedignored = ls-files -i --exclude-standard
 [push]
 	default = simple
