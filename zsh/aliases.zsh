@@ -5,7 +5,6 @@ alias ..='cd ..'
 alias o='less'
 alias grep='grep --color'
 alias c=clear
-# some more ls aliases
 
 alias ping="ping -c 4"
 alias untar="tar -xvf"
@@ -13,6 +12,9 @@ alias untarz="tar -xzvf"
 alias tarc='tar -cvf'
 alias tarz='tar -czvf'
 
+alias vii='vim -R'
+
+# some more ls aliases
 # -G option for ls is for colors in mac but not in linux
 if [[ `uname` = Darwin ]]
 then
@@ -31,7 +33,7 @@ then
 fi
 
 alias gca='git commit -a'
-alias git='git --no-pager'
+#alias git='git --no-pager'
 alias gits='git status -bs'
 alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
