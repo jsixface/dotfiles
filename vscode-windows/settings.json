@@ -6,7 +6,6 @@
   ],
   "editor.wordWrap": "on",
   "extensions.ignoreRecommendations": false,
-  "files.autoSave": "afterDelay",
   "files.eol": "\n",
   "git.enableSmartCommit": true,
   "telemetry.enableCrashReporter": false,
