@@ -1,0 +1,31 @@
+[global_config]
+  handle_size = 0
+  window_state = maximise
+  extra_styling = False
+  title_hide_sizetext = True
+  always_split_with_profile = True
+[keybindings]
+  split_horiz = <Primary><Shift>d
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#282828"
+    cursor_color = "#aaaaaa"
+    font = Roboto Mono for Powerline 12
+    foreground_color = "#babdb6"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#19788f:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    word_chars = "-,./?%&#:_~"
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
