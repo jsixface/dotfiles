@@ -26,14 +26,8 @@ alias ll='ls -lF'
 alias lt='ls -lFrt'
 alias la='ls -al'
 
-if [[ `which exa > /dev/null` ]]
-then
-	alias ls='exa'
-	alias lrt='ls -l --sort new'
-fi
-
 alias gca='git commit -a'
-#alias git='git --no-pager'
+alias git='git --no-pager'
 alias gits='git status -bs'
 alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
@@ -49,4 +43,8 @@ then
 	alias dcps='docker-compose ps'
 fi
 
+if [[ $(alias z | wc -w) == 2 ]]
+then
+	alias j='_z 2>&1'
+fi
 

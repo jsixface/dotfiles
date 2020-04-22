@@ -57,8 +57,8 @@ nnoremap <silent> <S-t> :enew<CR>
 " <F4> to delete the current buffer.
 nnoremap <F4> :bdelete<CR>
 
-" <F9> to quit Vim
-nnoremap <F9> <esc>:qa<CR>
+" <F12> to quit Vim
+nnoremap <F12> <esc>:qa<CR>
 
 " <F10> to close current window
 nnoremap <F10> <esc>:q<CR>
