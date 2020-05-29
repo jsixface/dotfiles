@@ -1,0 +1,4 @@
+git config merge.tool p4m
+git config mergetool.p4m.cmd "/usr/local/bin/p4merge \$PWD/\$BASE \$PWD/\$REMOTE \$PWD/\$LOCAL \$PWD/\$MERGED"
+git config mergetool.p4m.trustExitCode false
+git config mergetool.keepBackup false

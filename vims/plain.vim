@@ -20,6 +20,7 @@ set fileformat=unix " Set the file format to unix EOL
 let mapleader=','   " Map leader to , 
 set laststatus=2
 set background=dark
+set autowrite 		" Automatically write the file to disk when :make is called"
 
 set number          " show line numbers
 set relativenumber  " To display line numbers relative to the line with the cursor, use:

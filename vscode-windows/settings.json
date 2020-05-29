@@ -1,6 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.rulers": [
     100
   ],
@@ -10,7 +10,6 @@
   "git.enableSmartCommit": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#666"
   },
@@ -32,5 +31,8 @@
   ],
   "python.autoComplete.extraPaths": [
     "${workspaceRoot}/lib/python3.6/site-packages/"
-  ]
+  ],
+  "go.useLanguageServer": true,
+  "window.zoomLevel": 0,
+  "python.jediEnabled": false
 }

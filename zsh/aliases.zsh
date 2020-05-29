@@ -27,7 +27,7 @@ alias lt='ls -lFrt'
 alias la='ls -al'
 
 alias gca='git commit -a'
-alias git='git --no-pager'
+#alias git='git --no-pager'
 alias gits='git status -bs'
 alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
@@ -47,4 +47,9 @@ if [[ $(alias z | wc -w) == 2 ]]
 then
 	alias j='_z 2>&1'
 fi
+
+
+function lstar() {
+tar -tf $1 |less
+}
 
