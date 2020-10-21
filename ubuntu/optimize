@@ -1,0 +1,13 @@
+> power management:
+> https://wiki.ubuntu.com/Kernel/PowerManagement/PowerSavingTweaks
+> https://www.pcsuggest.com/disable-nmi-watchdog-linux/ 
+
+
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 
+
+to 
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i915.i915_enable_fbc=1 i915.lvds_downclock=1 nmi_watchdog=0 "
+
+sudo update-grub

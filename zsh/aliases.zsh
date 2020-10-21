@@ -50,6 +50,10 @@ fi
 
 
 function lstar() {
-tar -tf $1 |less
+	tar -tf $1 |less
 }
 
+function mkcd() {
+	mkdir -p $1
+	cd $1
+}
