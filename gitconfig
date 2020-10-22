@@ -16,3 +16,5 @@
 	quotepath = false
 [diff]
 	tool = vimdiff
+[pull]
+	ff = only
