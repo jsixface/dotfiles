@@ -6,6 +6,9 @@ export VISUAL=$EDITOR
 [[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
 [[ -d ~/go/bin ]] && export PATH=$PATH:~/go/bin
 
+
+[[ -f ~/.zprofile ]] && source ~/.zprofile
+
 # To bind ctrl-space to accept autosuggest
 bindkey '^ ' autosuggest-accept
 
