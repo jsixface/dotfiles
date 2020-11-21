@@ -39,7 +39,7 @@ alias rf="rm -rf"
 if [[ `which docker` ]]
 then
 	alias dkr='docker run -it --rm'
-	alias dps='docker ps --all --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
+	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
 	alias dcps='docker-compose ps'
 fi
 
