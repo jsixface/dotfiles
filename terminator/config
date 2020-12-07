@@ -10,7 +10,7 @@
   always_split_with_profile = True
 [keybindings]
   split_horiz = <Primary><Shift>d
-  split_vert = <Primary><Alt>e
+  split_vert = <Primary><Shift>e
 [profiles]
   [[default]]
     icon_bell = False
