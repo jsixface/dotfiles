@@ -29,6 +29,11 @@ then
 	~/.fzf/install
 fi
 
+if [[ ! -d ~/bin ]]
+then
+	mkdir ~/bin
+fi
+cp ${_curr_dir}/bin/apt-list-manual ~/bin/
 
 
 echo " 
