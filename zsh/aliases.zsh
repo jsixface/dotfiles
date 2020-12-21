@@ -15,6 +15,10 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
+alias t=tree
+alias tl='tree -L 1'
+alias tl2='tree -L 2'
+
 alias ping="ping -c 4"
 alias untar="tar -xvf"
 alias untarz="tar -xzvf"
@@ -31,7 +35,7 @@ then
 fi
 
 alias -g G='| grep'
-alias -g L="| less"
+alias -g L="| less -R"
 alias -g LL="2>&1 | less"
 
 alias gca='git commit -a'
