@@ -34,7 +34,7 @@ then
     alias ls="ls -G"
 fi
 
-alias -g G='| grep'
+alias -g G='| grep -i'
 alias -g L="| less -R"
 alias -g LL="2>&1 | less"
 
