@@ -2,7 +2,6 @@
 alias -- +='pushd .'
 alias -- -='popd'
 alias ..='cd ..'
-alias o='less'
 alias c=clear
 
 alias l='ls -lFh'     #size,show type,human readable
@@ -35,6 +34,8 @@ then
 fi
 
 alias -g G='| grep -i'
+alias -g S='| sort'
+alias -g U='| uniq'
 alias -g L="| less -R"
 alias -g LL="2>&1 | less"
 
