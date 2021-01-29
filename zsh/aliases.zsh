@@ -50,6 +50,7 @@ alias ubuntu-update='sudo apt update && apt list --upgradable && sudo apt upgrad
 alias rf="rm -rf"
 alias rtfm=man
 alias wtf=dmesg
+alias please=sudo
 
 if [[ `which docker` ]]
 then
