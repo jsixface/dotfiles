@@ -46,7 +46,10 @@ alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
 alias yolo='git add .; git commit -am "betterer code"'
 
-alias ubuntu-update='sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y'
+`which snap > /dev/null` && \
+	alias ubuntu-update='sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo snap refresh' || \
+	alias ubuntu-update='sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y' 
+
 alias rf="rm -rf"
 alias rtfm=man
 alias wtf=dmesg
