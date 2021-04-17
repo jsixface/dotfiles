@@ -55,6 +55,8 @@ alias rtfm=man
 alias wtf=dmesg
 alias please=sudo
 
+alias dig="dig +nocmd +noall +answer"
+
 if [[ `which docker` ]]
 then
 	alias dkr='docker run -it --rm'
