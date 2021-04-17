@@ -2,13 +2,15 @@
 
 _curr_dir=$(readlink -f `dirname $0`)
 
+[[ -d ~/bin ]] || mkdir ~/bin
+
 ln -vsf ${_curr_dir}/bashrc ~/.bashrc
 ln -vsf ${_curr_dir}/bash_profile ~/.bash_profile
 ln -vsf ${_curr_dir}/bash_aliases ~/.bash_aliases
 ln -vsf ${_curr_dir}/gitconfig ~/.gitconfig
 
 cp ${_curr_dir}/dircolors ~/.dircolors
-cp ${_curr_dir}/bin/apt-list-manual ~/bin/
+cp ${_curr_dir}/bin/* ~/bin/
 
 
 if [[ `which zsh` ]]

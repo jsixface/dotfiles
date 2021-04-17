@@ -1,14 +1,14 @@
+# Load all these plugins 
+#   - This way we don't have to edit ~/.zshrc after every install
 
 myPlugins=(\
         zsh-autosuggestions \
         z \
-        battery \
         systemd \
         docker \
         docker-compose \
         zsh-dircolors-solarized )
 
-# Load all of the myPlugins 
 for plugin ($myPlugins); do
   if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
     source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
@@ -20,8 +20,10 @@ done
 ZSH_THEME="agnoster"
 DISABLE_AUTO_UPDATE="true"
 
-export GIT_EDITOR=/usr/bin/vim
-export EDITOR=/usr/bin/vim
+export EDITOR=$(which nvim 2>/dev/null) 
+[[ -z $EDITOR ]] && export EDITOR=$(which vi)
+
+export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 [[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
@@ -34,6 +36,8 @@ export VISUAL=$EDITOR
 # To bind ctrl-space to accept autosuggest
 bindkey '^ ' autosuggest-accept
 
+
+### Re-assign 'z' to 'j' because j is easy to type with index finger and analogous for 'jump'
 if [[ $(alias z | wc -w) == 2 ]]
 then
 	alias j='_z 2>&1'

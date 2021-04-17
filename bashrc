@@ -114,4 +114,3 @@ which gocomplete > /dev/null && complete -C gocomplete go
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-zsh
