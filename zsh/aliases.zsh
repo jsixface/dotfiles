@@ -72,7 +72,5 @@ function mkcd() {
 	cd $1
 }
 
-[[ `which tldr` ]] && alias man=tldr && alias mano=/usr/bin/man
-
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias grep='grep --color'
