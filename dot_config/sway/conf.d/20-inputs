@@ -1,0 +1,11 @@
+
+input type:touchpad {
+    tap enabled
+    natural_scroll disabled
+}
+
+input type:mouse {
+    natural_scroll disabled
+	accel_profile flat
+}
+

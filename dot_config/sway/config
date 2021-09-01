@@ -18,24 +18,9 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show=drun
+#set $menu wofi --show=drun
+set $menu ulauncher-toggle
 
-
-# For java programs like Android studio to work properly
-set $_JAVA_AWT_WM_NONREPARENTING 1
-
-# To automatically disable laptop screen when closed.
-set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
-
-exec_always $HOME/bin/sway_clamshell.sh
-
-### Autostart configurations
-
-exec nm-applet # Wifi Daemon
-
-exec slack --silent --logLevel warn
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -46,6 +31,8 @@ output * bg /usr/share/backgrounds/default.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+exec nm-applet
+
 
 ### Idle configuration
 #
@@ -64,9 +51,8 @@ exec swayidle -w \
          timeout 300 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * dpms off"' \
 		 resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
-
-input * xkb_numlock enable
+         before-sleep 'swaylock -f -c 000000' \
+         idlehint 5
 
 ### Input configuration
 #
@@ -81,14 +67,6 @@ input * xkb_numlock enable
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input type:touchpad {
-	tap enabled
-	natural_scroll disabled
-}
-
-input "1130:45201:PixArt_Cherry_USB_Optical_Mouse" {
-	accel_profile flat
-}
 
 ### Key bindings
 #
@@ -101,7 +79,7 @@ input "1130:45201:PixArt_Cherry_USB_Optical_Mouse" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+Grave exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -248,3 +226,4 @@ bar {
 }
 
 include /etc/sway/config.d/*
+include ~/.config/sway/conf.d/*

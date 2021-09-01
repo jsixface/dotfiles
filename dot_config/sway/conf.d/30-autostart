@@ -1,0 +1,10 @@
+
+# To automatically disable laptop screen when closed.
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+exec_always $HOME/bin/sway_clamshell.sh
+
+## Start Mako service to display notifications.
+exec mako
