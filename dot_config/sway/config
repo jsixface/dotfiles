@@ -144,6 +144,10 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    bindsym $mod+Tab workspace next_on_output
+    bindsym $mod+Shift+Tab workspace prev_on_output
+    bindsym $mod+Mod1+$left move workspace to output left
+    bindsym $mod+Mod1+$right move workspace to output right
 #
 # Layout stuff:
 #
