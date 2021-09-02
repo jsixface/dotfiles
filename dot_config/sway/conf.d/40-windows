@@ -1,0 +1,10 @@
+
+for_window [app_id="ulauncher"] {
+	border none
+	floating enable
+}
+
+for_window [app_id="pavucontrol"] {
+	floating enable
+    resize set width 600 height 500
+}
