@@ -63,6 +63,8 @@ alias shazam="sudo su"
 alias dig='dig +noall +answer'
 alias dig="dig +nocmd +noall +answer"
 
+alias dig="dig +nocmd +noall +answer"
+
 if [[ `which docker` ]]
 then
 	alias dkr='docker run -it --rm'
@@ -99,3 +101,6 @@ function cd() {
 }
 
 
+
+alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
+alias grep='grep --color'
