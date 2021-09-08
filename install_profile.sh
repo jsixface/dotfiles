@@ -4,9 +4,6 @@ _curr_dir=$(readlink -f `dirname $0`)
 
 [[ -d ~/bin ]] || mkdir ~/bin
 
-ln -vsf ${_curr_dir}/bashrc ~/.bashrc
-ln -vsf ${_curr_dir}/bash_profile ~/.bash_profile
-ln -vsf ${_curr_dir}/bash_aliases ~/.bash_aliases
 ln -vsf ${_curr_dir}/gitconfig ~/.gitconfig
 
 cp ${_curr_dir}/dircolors ~/.dircolors
@@ -31,11 +28,6 @@ if [[ ! -d ~/.fzf ]]
 then
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
-fi
-
-if [[ ! -d ~/bin ]]
-then
-	mkdir ~/bin
 fi
 
 

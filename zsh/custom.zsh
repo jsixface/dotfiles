@@ -31,7 +31,7 @@ export VISUAL=$EDITOR
 [[ -d ~/bin ]] && export PATH=$PATH:~/bin
 
 
-[[ -f ~/.zprofile ]] && source ~/.zprofile
+[[ -f ~/.local/zprofile ]] && source ~/.local/zprofile
 
 # To bind ctrl-space to accept autosuggest
 bindkey '^ ' autosuggest-accept

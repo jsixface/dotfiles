@@ -18,30 +18,26 @@ alias tarc='tar -cvf'
 alias tarz='tar -czvf'
 
 alias vii='vim -R'
-if [[ `which nvim` ]]
+if [[ `which nvim 2>/dev/null` ]]
 then
 	alias vi=nvim
 	alias vim=nvim
 fi
 
 # some more ls aliases
-# -G option for ls is for colors in mac but not in linux
-if [[ `uname` = Darwin ]]
-then
-    alias ls="ls -G"
+if [[ `which exa 2>/dev/null` ]]; then
+	alias ls=exa
+elif [[ `uname` = Darwin ]]; then
+	alias ls="ls -G" # -G option for ls is for colors in mac but not in linux
 fi
 
 alias -g G='| grep -i'
-alias -g S='| sort'
-alias -g U='| uniq'
-
-if ! which batcat > /dev/null 2>&1
-then
+if [[ `which batcat 2>/dev/null` || `which bat 2>/dev/null` ]]; then
 	alias -g L='| batcat --pager "less -R"'
 	alias -g LL="2>&1 | batcat"
 else
-alias -g L="| less -R"
-alias -g LL="2>&1 | less"
+	alias -g L="| less -R"
+	alias -g LL="2>&1 | less"
 fi
 
 alias gca='git commit -a'
@@ -49,9 +45,20 @@ alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
 alias yolo='git add .; git commit -am "betterer code"'
 
-`which snap > /dev/null 2>&1` && \
-	alias ubuntu-update='sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo snap refresh' || \
-	alias ubuntu-update='sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y' 
+
+if [[ `which snap 2>/dev/null` ]]; then
+	alias ubuntu-update="sudo apt update && \
+			apt list --upgradable && \
+			sudo apt dist-upgrade -y && \
+			sudo apt autoremove -y && \
+			sudo snap refresh"
+else
+	alias ubuntu-update="sudo apt update && \
+			apt list --upgradable && \
+			sudo apt dist-upgrade -y && \
+			sudo apt autoremove -y"
+fi
+
 
 alias rf="rm -rf"
 alias psef="ps -ef | grep -i"
@@ -60,12 +67,9 @@ alias wtf=dmesg
 alias please=sudo
 alias shazam="sudo su"
 
-alias dig='dig +noall +answer'
 alias dig="dig +nocmd +noall +answer"
 
-alias dig="dig +nocmd +noall +answer"
-
-if [[ `which docker` ]]
+if [[ `which docker 2>/dev/null` ]]
 then
 	alias dkr='docker run -it --rm'
 	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
@@ -100,7 +104,6 @@ function cd() {
 	esac
 }
 
-
-
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias grep='grep --color'
+
