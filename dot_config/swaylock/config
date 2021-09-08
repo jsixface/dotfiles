@@ -1,4 +1,4 @@
 indicator-idle-visible
-indicator-radius=150
-indicator-thickness=40
+indicator-radius=350
+indicator-thickness=100
 color=008067
