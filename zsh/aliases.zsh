@@ -1,4 +1,7 @@
 # profile aliases for arumugam
+# `which` is a build-in zsh command and it writes to stdout. So it cannot be
+# 		used for in if statement. That's why we use /bin/which
+
 alias ..='cd ..'
 
 alias l='ls -lFh'     #size,show type,human readable
@@ -18,21 +21,21 @@ alias tarc='tar -cvf'
 alias tarz='tar -czvf'
 
 alias vii='vim -R'
-if [[ `which nvim 2>/dev/null` ]]
+if [[ `/bin/which nvim 2>/dev/null` ]]
 then
 	alias vi=nvim
 	alias vim=nvim
 fi
 
 # some more ls aliases
-if [[ `which exa 2>/dev/null` ]]; then
+if [[ `/bin/which exa 2>/dev/null` ]]; then
 	alias ls=exa
 elif [[ `uname` = Darwin ]]; then
 	alias ls="ls -G" # -G option for ls is for colors in mac but not in linux
 fi
 
 alias -g G='| grep -i'
-if [[ `which batcat 2>/dev/null` || `which bat 2>/dev/null` ]]; then
+if [[ `/bin/which batcat 2>/dev/null` || `/bin/which bat 2>/dev/null` ]]; then
 	alias -g L='| batcat --pager "less -R"'
 	alias -g LL="2>&1 | batcat"
 else
@@ -46,7 +49,7 @@ alias glo='git log --oneline --decorate -10'
 alias yolo='git add .; git commit -am "betterer code"'
 
 
-if [[ `which snap 2>/dev/null` ]]; then
+if [[ `/bin/which snap 2>/dev/null` ]]; then
 	alias ubuntu-update="sudo apt update && \
 			apt list --upgradable && \
 			sudo apt dist-upgrade -y && \
@@ -69,7 +72,7 @@ alias shazam="sudo su"
 
 alias dig="dig +nocmd +noall +answer"
 
-if [[ `which docker 2>/dev/null` ]]
+if [[ `/bin/which docker 2>/dev/null` ]]
 then
 	alias dkr='docker run -it --rm'
 	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
