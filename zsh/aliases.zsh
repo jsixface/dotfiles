@@ -78,6 +78,11 @@ then
 	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
 fi
 
+if [[ $TERM == "alacritty" ]]
+then
+	alias ssh="TERM=xterm-256color ssh"
+fi
+
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias grep='grep --color'
 alias path='echo $PATH | sed "s/:/\n/g" | sort' # Quick display path
@@ -106,7 +111,4 @@ function cd() {
 			;;
 	esac
 }
-
-alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
-alias grep='grep --color'
 

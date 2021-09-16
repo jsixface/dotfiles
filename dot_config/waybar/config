@@ -28,7 +28,6 @@
     "modules-right": [
         "network",
         "pulseaudio",
-        "temperature",
         "battery",
         "tray",
         "clock#date",
