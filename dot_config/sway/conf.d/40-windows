@@ -8,3 +8,6 @@ for_window [app_id="pavucontrol"] {
 	floating enable
     resize set width 600 height 500
 }
+
+# when an xwayland client requests window activation move focus to that window
+focus_on_window_activation focus
