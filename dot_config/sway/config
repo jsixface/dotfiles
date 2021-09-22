@@ -79,7 +79,7 @@ exec swayidle -w \
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+Grave exec $menu
+    bindsym $mod+Space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -117,6 +117,13 @@ exec swayidle -w \
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+    # Focus Next app
+    bindsym Mod1+Tab focus next
+    bindsym $mod+Tab focus next
+    # Focus Previous app
+    bindsym Mod1+Shift+Tab focus prev
+    bindsym $mod+Shift+Tab focus prev
 #
 # Workspaces:
 #
@@ -144,8 +151,10 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-    bindsym $mod+Tab workspace next_on_output
-    bindsym $mod+Shift+Tab workspace prev_on_output
+
+
+    bindsym $mod+Next workspace next_on_output
+    bindsym $mod+Prior workspace prev_on_output
     bindsym $mod+Mod1+$left move workspace to output left
     bindsym $mod+Mod1+$right move workspace to output right
 #
@@ -158,7 +167,7 @@ exec swayidle -w \
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    bindsym $mod+s layout toggle stacking split
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
@@ -168,11 +177,6 @@ exec swayidle -w \
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
 #
 # Scratchpad:
 #

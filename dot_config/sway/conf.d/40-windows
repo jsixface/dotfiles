@@ -11,3 +11,6 @@ for_window [app_id="pavucontrol"] {
 
 # when an xwayland client requests window activation move focus to that window
 focus_on_window_activation focus
+
+# No title bar. Just highlight the active window
+default_border pixel 2
