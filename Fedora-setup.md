@@ -1,6 +1,7 @@
 # Install below on Fedora for sway-wm
 
   - alacritty
+  - ffmpeg
   - light
   - mako
   - network-manager-applet
@@ -17,3 +18,6 @@
   - waybar
   - wev
   - wl-clipboard
+  - wf-recorder
+
+  https://github.com/ErikReider/SwayAudioIdleInhibit/

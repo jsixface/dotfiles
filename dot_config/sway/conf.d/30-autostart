@@ -8,3 +8,6 @@ exec_always $HOME/bin/sway_clamshell.sh
 
 ## Start Mako service to display notifications.
 exec mako
+
+# Inhibit when audio is in use.
+exec $HOME/bin/sway-audio-idle-inhibit > $HOME/logs/audio-inhibit.log
