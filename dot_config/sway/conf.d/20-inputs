@@ -1,5 +1,6 @@
 
 input type:touchpad {
+    dwt enabled
     tap enabled
     natural_scroll disabled
 }
@@ -23,14 +24,7 @@ set $volumeUp "pactl set-sink-volume @DEFAULT_SINK@ +1000"
 set $volumeDown "pactl set-sink-volume @DEFAULT_SINK@ -1000"
 set $volumeMute "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-bindsym XF86AudioLowerVolume exec $volumeDown
-bindsym XF86AudioRaiseVolume exec $volumeUp
-bindsym XF86AudioMute exec $volumeMute
+#bindsym $mod+F1 exec $volumeDown
+#bindsym $mod+F2 exec $volumeUp
+#bindsym $mod+F3 exec $volumeMute
 
-bindsym $mod+F1 exec $volumeDown
-bindsym $mod+F2 exec $volumeUp
-bindsym $mod+F3 exec $volumeMute
-
-
-bindsym XF86MonBrightnessDown exec "light -U 10"
-bindsym XF86MonBrightnessUp exec "light -A 10"
