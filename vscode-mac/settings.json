@@ -1,1 +1,80 @@
-{}
+// Place your settings in this file to overwrite the default settings
+{
+  "editor.fontSize": 14,
+  "editor.rulers": [
+    100
+  ],
+  "editor.wordWrap": "on",
+  "extensions.ignoreRecommendations": true,
+  "files.eol": "\n",
+  "git.enableSmartCommit": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#666"
+  },
+  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Monochrome Icons",
+  "workbench.startupEditor": "newUntitledFile",
+  "zenMode.hideTabs": false,
+  "python.formatting.provider": "yapf",
+  "jupyter.appendResults": true,
+  "python.autoComplete.addBrackets": true,
+  "python.autoComplete.preloadModules": [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "sklearn"
+  ],
+  "python.workspaceSymbols.exclusionPatterns": [
+  ],
+  "python.autoComplete.extraPaths": [
+    "${workspaceRoot}/lib/python3.6/site-packages/"
+  ],
+  "go.useLanguageServer": true,
+  "python.jediEnabled": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"python.languageServer": "Microsoft",
+"python.pythonPath": "/bin/python",
+"terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+"terminal.integrated.fontSize": 16,
+"git.confirmSync": false,
+"diffEditor.renderSideBySide": true,
+"workbench.tree.indent": 4,
+"yaml.schemas": {
+  "file:///home/sixface/.vscode/extensions/atlassian.atlascode-2.8.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+},
+"atlascode.bitbucket.enabled": true,
+"atlascode.jira.jqlList": [
+  {
+    "id": "855f471a-5cdc-4508-8e44-25c226dd4603",
+    "enabled": true,
+    "name": "My getbevi Issues",
+    "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+    "siteId": "120f530b-e4f0-42c4-8a7f-078804a29f5a",
+    "monitor": true
+  }
+],
+"files.exclude": {
+  "**/._sync_*": true,
+  "**/.sync_*": true
+},
+"atlascode.jira.lastCreateSiteAndProject": {
+  "siteId": "120f530b-e4f0-42c4-8a7f-078804a29f5a",
+  "projectKey": "EN"
+},
+"window.titleBarStyle": "custom",
+"redhat.telemetry.enabled": false,
+"update.mode": "manual",
+"security.workspace.trust.untrustedFiles": "open",
+"[jsonc]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"debug.console.fontSize": 16
+}
