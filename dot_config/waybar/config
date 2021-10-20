@@ -75,15 +75,15 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
+            "good": 95,
+            "warning": 20,
+            "critical": 5
         },
         "format": "{icon} {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-        //"format-icons": ["", "", "", "", "", "", "", "", "", ""]
+        //"format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", "", ""]
     },
      "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface

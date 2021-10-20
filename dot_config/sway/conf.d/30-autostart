@@ -2,7 +2,7 @@
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Desktop notifications
-exec mako
+exec mako | systemd-cat --identifier=mako
 
 
 # GTK3 applications take a long time to start
@@ -37,7 +37,7 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,secrets,ssh
 exec libinput-gestures-setup start
 
 # Outputs
-exec kanshi
+exec kanshi | systemd-cat --identifier=kanshi
 
 # Xdg DEsktop Portal
 exec /usr/libexec/xdg-desktop-portal

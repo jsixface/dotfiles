@@ -1,0 +1,9 @@
+
+profile nomad {
+    output eDP-1 enable scale 1.2
+}
+
+profile home_meeting {
+	output eDP-1 enable scale 1 position 0,0 
+	output 'Acer Technologies R271 T60AA0012411' enable
+}
