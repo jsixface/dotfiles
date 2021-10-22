@@ -1,0 +1,93 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrains Mono Medium";
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#workspaces {
+  button {
+    font-size: 20px;
+    color: #9dfa64;
+    border-bottom: 3px solid transparent;
+  }
+
+  button.visible {
+    font-size: 20px;
+    color: #9dfa64;
+  }
+
+  button.focused {
+    border-bottom: 3px solid #9dfa64;
+  }
+  button:hover {
+    background: #2d2d2d;
+    box-shadow: inherit;
+  }
+}
+
+#custom-cap-left,
+#custom-cap-right {
+  font-size: 31px;
+  color: #9dfa64;
+}
+
+#cpu,
+#temperature,
+#memory,
+#pulseaudio,
+#battery,
+#clock,
+#network {
+  font-size: 20px;
+  background: #9dfa64;
+  color: #000000;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#tray {
+  font-size: 26px;
+  background: #9dfa64;
+  color: #000000;
+}
+
+#custom-power,
+#idle_inhibitor {
+  font-size: 26px;
+  background: #9dfa64;
+  color: #000000;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+#battery {
+  background-color: #9dfa64;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #000000;
+  background-color: #26a65b;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ff0400;
+    color: #000000;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #9dfa64;
+  color: #000000;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

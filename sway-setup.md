@@ -9,6 +9,7 @@
   - pavucontrol
   - pulseaudio-utils
   - slurp
+  - sassc _(to compile sass config to css for waybar)_
   - swappy
   - sway
   - swaybg
