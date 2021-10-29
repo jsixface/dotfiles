@@ -41,8 +41,8 @@ fi
 
 alias -g G='| grep -i'
 if [[ `do_which batcat` || `do_which bat` ]]; then
-	alias -g L='| batcat --pager "less -R"'
-	alias -g LL="2>&1 | batcat"
+	alias -g L='| bat --pager "less -R"'
+	alias -g LL="2>&1 | bat"
 else
 	alias -g L="| less -R"
 	alias -g LL="2>&1 | less"
