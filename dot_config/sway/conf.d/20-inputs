@@ -14,11 +14,6 @@ input type:keyboard {
     xkb_numlock enabled
 }
 
-# Configure screenshots. 
-bindsym Print exec 'grim -g "$(slurp)" - | swappy -f -'
-bindsym $mod+Print exec $HOME/bin/sway-screenshot
-
-
 # Configure Audio controls. 
 set $volumeUp "pactl set-sink-volume @DEFAULT_SINK@ +1000"
 set $volumeDown "pactl set-sink-volume @DEFAULT_SINK@ -1000"

@@ -1,6 +1,6 @@
 
 profile nomad {
-    output eDP-1 enable scale 1.2
+    output eDP-1 enable scale 1.15
 }
 
 profile home_meeting {

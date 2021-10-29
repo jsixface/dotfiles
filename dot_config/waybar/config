@@ -11,7 +11,7 @@
 			"states": {
 				"good": 95,
 				"warning": 30,
-				"critical": 10,
+				"critical": 10
 			},
 			"tooltip": true,
 			"full-at": 95,
@@ -19,12 +19,12 @@
 			"format-charging": "⚡ {capacity}%",
 			"format": "{icon} {capacity}%",
 			"format-icons": ["", "", "", "", "", "", "", "", "", ""],
-			"format-time": "{H}h:{M}m",
+			"format-time": "{H}h:{M}m"
 		},
 		"clock": {
 			"format": " {:%a %b %d %H:%M}",
 			"tooltip": false,
-			"min-length": 18,
+			"min-length": 18
 		},
 		"network": {
 			"format-wifi": " {essid}",
@@ -33,7 +33,7 @@
 			"format-disconnected": "⚠ Disconnected",
 			"tooltip": false,
 			"max-length": 20,
-			"min-length": 16,
+			"min-length": 16
 		},
 		"pulseaudio": {
 			"tooltip": false,
@@ -44,42 +44,43 @@
 			"format-icons": {
 				"headphone": "",
 				"headset": "",
-				"default": ["", "", ""],
+				"default": ["", "", ""]
 			},
 			"on-click": "pamixer -t",
-			"on-click-right": "pavucontrol",
+			"on-click-right": "pavucontrol"
 		},
 		"idle_inhibitor": {
 			"format": "{icon}",
 			"format-icons": {
 				"activated": "",
 				"deactivated": "",
-				"min-length": 3,
-			},
+				"min-length": 3
+			}
 		},
 		"cpu": {
 			"interval": 2,
 			"format": " {usage}%",
-			"min-length": 6,
+			"min-length": 6
 		},
 		"temperature": {
 			"tooltip": false,
+			"thermal-zone": 2,
 			"format": " {temperatureC}°C",
-			"min-length": 6,
+			"min-length": 6
 		},
 		"memory": {
 			"format": " {percentage}%",
-			"min-length": 6,
+			"min-length": 6
 		},
 		"sway/workspaces": {
 		},
 		"custom/cap-left": {
 			"tooltip": false,
-			"format": "",
+			"format": ""
 		},
 		"custom/cap-right": {
 			"tooltip": false,
-			"format": "",
+			"format": ""
 		},
 		"tray": {
 			"icon-size": 14, 

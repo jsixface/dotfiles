@@ -9,15 +9,15 @@ window#waybar {
 
 #workspaces button {
   font-size: 16px;
-  color: #9dfa64;
+  color: #689aab;
   border-bottom: 3px solid transparent; }
 
 #workspaces button.visible {
   font-size: 16px;
-  color: #9dfa64; }
+  color: #689aab; }
 
 #workspaces button.focused {
-  border-bottom: 3px solid #9dfa64; }
+  border-bottom: 3px solid #689aab; }
 
 #workspaces button:hover {
   background: #2d2d2d;
@@ -26,7 +26,7 @@ window#waybar {
 #custom-cap-left,
 #custom-cap-right {
   font-size: 22px;
-  color: #9dfa64; }
+  color: #689aab; }
 
 #tray,
 #cpu,
@@ -37,22 +37,22 @@ window#waybar {
 #clock,
 #network {
   font-size: 16px;
-  background: #9dfa64;
-  color: black;
+  background: #689aab;
+  color: #262c3c;
   padding-left: 10px;
   padding-right: 10px; }
 
 #custom-power {
   font-size: 22px;
-  background: #9dfa64;
-  color: black;
+  background: #689aab;
+  color: #262c3c;
   padding-left: 20px;
   padding-right: 10px; }
 
 #idle_inhibitor {
   font-size: 22px;
-  background: #9dfa64;
-  color: black;
+  background: #689aab;
+  color: #262c3c;
   padding-left: 10px;
   padding-right: 10px; }
 
@@ -63,11 +63,11 @@ window#waybar {
 @keyframes blink {
   to {
     background-color: #ff0400;
-    color: black; } }
+    color: #262c3c; } }
 
 #battery.critical:not(.charging) {
-  background-color: #9dfa64;
-  color: black;
+  background-color: #689aab;
+  color: #262c3c;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;

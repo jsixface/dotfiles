@@ -16,6 +16,7 @@
   - swayidle
   - swaylock
   - ulauncher
+  - virt-manager
   - waybar
   - wev
   - wl-clipboard
