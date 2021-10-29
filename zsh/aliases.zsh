@@ -67,7 +67,7 @@ else
 			sudo apt autoremove -y"
 fi
 
-
+alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs"
 alias rf="rm -rf"
 alias psef="ps -ef | grep -i"
 alias rtfm=man
