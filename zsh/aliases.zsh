@@ -92,6 +92,12 @@ alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc f
 alias grep='grep --color'
 alias path='echo $PATH | sed "s/:/\n/g" | sort' # Quick display path
 
+## Arch linux related alias
+if [[ `do_which pacman` ]]
+then
+	alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+fi
+
 function lstar() {
 	tar -tf $1 |less
 }

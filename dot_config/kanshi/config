@@ -1,9 +1,9 @@
 
-profile nomad {
+profile {
     output eDP-1 enable scale 1.15
 }
 
-profile home_meeting {
+profile {
 	output eDP-1 enable scale 1 position 0,0 
-	output 'Acer Technologies R271 T60AA0012411' enable
+	output "Acer Technologies R271 T60AA0012411" enable position 1920,0
 }

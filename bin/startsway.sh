@@ -1,10 +1,6 @@
 #!/bin/bash
 
-export WLR_DRM_NO_MODIFIERS=1 
-if [ -z $DISPLAY ] ; then
-  exec sway >> ~/sway.log 2>&1
-else
-	echo "Display already set"
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+  export WLR_DRM_NO_MODIFIERS=1 
+  exec sway|systemd-cat --identifier=sway
 fi
-
-

@@ -1,9 +1,9 @@
 {
 	"layer": "top",
 		"position": "top",
-		"modules-left": ["custom/power", "idle_inhibitor", "temperature", "cpu", "memory", "battery", "pulseaudio", "custom/cap-left"],
+		"modules-left": ["custom/power", "idle_inhibitor", "cpu", "memory", "battery", "pulseaudio", "custom/cap-left"],
 		"modules-center": ["sway/workspaces"],
-		"modules-right": ["custom/cap-right", "network", "tray", "clock"],
+		"modules-right": ["custom/cap-right", "temperature", "tray", "clock"],
 		"sway/window": {
 		},
 		"battery": {
