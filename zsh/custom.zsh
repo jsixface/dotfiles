@@ -20,6 +20,8 @@ done
 ZSH_THEME="agnoster"
 DISABLE_AUTO_UPDATE="true"
 
+# Stop homebrew from upgrading index while downloading new apps
+HOMEBREW_NO_AUTO_UPDATE=1
 export EDITOR=$(which nvim 2>/dev/null) 
 [[ -z $EDITOR ]] && export EDITOR=$(which vi)
 
