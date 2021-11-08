@@ -24,6 +24,7 @@
 		"clock": {
 			"format": " {:%a %b %d %H:%M}",
 			"tooltip": false,
+			"on-click": "yad --calendar",
 			"min-length": 18
 		},
 		"network": {
