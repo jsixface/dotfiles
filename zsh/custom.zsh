@@ -2,12 +2,13 @@
 #   - This way we don't have to edit ~/.zshrc after every install
 
 myPlugins=(\
-        zsh-autosuggestions \
-        z \
-        systemd \
         archlinux \
         docker \
         docker-compose \
+        fzf \
+        systemd \
+        z \
+        zsh-autosuggestions \
         zsh-dircolors-solarized )
 
 for plugin ($myPlugins); do
@@ -46,11 +47,4 @@ then
 	alias j='_z 2>&1'
 fi
 
-### include FZF scripts if installed
-if [[ -d /usr/share/fzf ]]
-then
-	source /usr/share/fzf/key-bindings.zsh
-	source /usr/share/fzf/completion.zsh
-	[[ -f /usr/bin/fd ]] && export FZF_DEFAULT_COMMAND='fd --type f'
-fi
 
