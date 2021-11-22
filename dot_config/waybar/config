@@ -65,7 +65,7 @@
 		},
 		"temperature": {
 			"tooltip": false,
-			"thermal-zone": 2,
+			"thermal-zone": 3,
 			"format": " {temperatureC}°C",
 			"min-length": 6
 		},

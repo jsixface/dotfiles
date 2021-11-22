@@ -5,7 +5,7 @@ source $VIMRT/keys.vim
 source $VIMRT/plugins.vim
 
 source $VIMRT/airline.vim
-"source $VIMRT/deoplete.vim
+source $VIMRT/deoplete.vim
 source $VIMRT/ultisnips.vim
 source $VIMRT/ctrlp.vim
 

@@ -98,6 +98,11 @@ then
 	alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 fi
 
+if [[ `do_which java` ]]
+then
+	export JAVA_HOME=$(java -XshowSettings:properties 2>&1 |grep java.home|awk '{print $3}')
+fi
+
 function lstar() {
 	tar -tf $1 |less
 }

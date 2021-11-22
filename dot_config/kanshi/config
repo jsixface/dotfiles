@@ -1,5 +1,9 @@
 
 profile {
+    output 'Dell Inc. DELL S2721D 1HGKP43' enable mode 2560x1440
+}
+
+profile {
     output eDP-1 enable scale 1.15
 }
 
