@@ -1,11 +1,3 @@
-# profile aliases for arumugam
-# `which` is a build-in zsh command and it writes to stdout. So it cannot be
-# 		used for in if statement. That's why we use the below function
-function do_which()
-{
-	local WHICH=`whence -cp which`
-    $WHICH $@ 2>/dev/null
-}
 
 alias ..='cd ..'
 
@@ -26,21 +18,21 @@ alias tarc='tar -cvf'
 alias tarz='tar -czvf'
 
 alias vii='vim -R'
-if [[ `do_which nvim` ]]
+if (( ${+commands[nvim]} ))
 then
 	alias vi=nvim
 	alias vim=nvim
 fi
 
 # some more ls aliases
-if [[ `do_which exa` ]]; then
+if (( ${+commands[exa]} )); then
 	alias ls=exa
 elif [[ `uname` = Darwin ]]; then
 	alias ls="ls -G" # -G option for ls is for colors in mac but not in linux
 fi
 
 alias -g G='| grep -i'
-if [[ `do_which batcat` || `do_which bat` ]]; then
+if (( ${+commands[bat]} )); then
 	alias -g L='| bat --pager "less -R"'
 	alias -g LL="2>&1 | bat"
 else
@@ -54,7 +46,7 @@ alias glo='git log --oneline --decorate -10'
 alias yolo='git add .; git commit -am "betterer code"'
 
 
-if [[ `do_which snap` ]]; then
+if (( ${+commands[snap]} )); then
 	alias ubuntu-update="sudo apt update && \
 			apt list --upgradable && \
 			sudo apt dist-upgrade -y && \
@@ -77,7 +69,7 @@ alias shazam="sudo su"
 
 alias dig="dig +nocmd +noall +answer"
 
-if [[ `do_which docker` ]]
+if (( ${+commands[docker]} ))
 then
 	alias dkr='docker run -it --rm'
 	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
@@ -93,12 +85,12 @@ alias grep='grep --color'
 alias path='echo $PATH | sed "s/:/\n/g" | sort' # Quick display path
 
 ## Arch linux related alias
-if [[ `do_which pacman` ]]
+if (( ${+commands[pacman]} ))
 then
 	alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 fi
 
-if [[ `do_which java` ]]
+if (( ${+commands[java]} ))
 then
 	export JAVA_HOME=$(java -XshowSettings:properties 2>&1 |grep java.home|awk '{print $3}')
 fi
@@ -127,6 +119,3 @@ function cd() {
 			;;
 	esac
 }
-
-unfunction do_which
-

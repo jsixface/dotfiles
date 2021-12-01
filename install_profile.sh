@@ -18,16 +18,9 @@ then
 	fi
 
 	ln -vsf ${_curr_dir}/zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh 
-	ln -vsf ${_curr_dir}/zsh/custom.zsh ~/.oh-my-zsh/custom/custom.zsh
+	ln -vsf ${_curr_dir}/zsh/zshrc ~/.zshrc
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	git clone --recursive https://github.com/joel-porquet/zsh-dircolors-solarized ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-dircolors-solarized
-fi
-
-
-if [[ ! -d ~/.fzf ]]
-then
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install
 fi
 
 
