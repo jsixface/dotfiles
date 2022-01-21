@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_curr_dir=$(pwd -P)
+_curr_dir=$(pwd --physical)
 
 [[ -d ~/bin ]] || mkdir ~/bin
 
