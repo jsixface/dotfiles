@@ -32,12 +32,23 @@ elif [[ `uname` = Darwin ]]; then
 fi
 
 alias -g G='| grep -i'
+if (( ${+commands[batcat]} )); then
+	if (( ! ${+commands[bat]} )); then
+		alias bat=batcat
+	fi
+fi
 if (( ${+commands[bat]} )); then
 	alias -g L='| bat --pager "less -R"'
 	alias -g LL="2>&1 | bat"
 else
 	alias -g L="| less -R"
 	alias -g LL="2>&1 | less"
+fi
+
+if (( ${+commands[fdfind]} )); then
+	if (( ! ${+commands[fd]} )); then
+		alias fd=fdfind
+	fi
 fi
 
 alias gca='git commit -a'
@@ -71,7 +82,8 @@ alias dig="dig +nocmd +noall +answer"
 
 if (( ${+commands[docker]} ))
 then
-	alias dkr='docker run -it --rm'
+	alias dkr='docker run -it --rm -v $PWD:/mydir'
+	alias dkrme='docker run -it --rm -v $PWD:/mydir --user 1000:1000'
 	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
 fi
 
