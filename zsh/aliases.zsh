@@ -102,10 +102,6 @@ then
 	alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 fi
 
-if (( ${+commands[java]} ))
-then
-	export JAVA_HOME=$(java -XshowSettings:properties 2>&1 |grep java.home|awk '{print $3}')
-fi
 
 function lstar() {
 	tar -tf $1 |less
@@ -115,7 +111,6 @@ function mkcd() {
 	mkdir -p $1
 	cd $1
 }
-
 
 function cd() {
 	case $# in

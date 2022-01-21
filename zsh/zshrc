@@ -19,12 +19,14 @@ plugins=(\
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR=$(which nvim 2>/dev/null) 
-[[ -z $EDITOR ]] && export EDITOR=$(which vi)
-
+export EDITOR=$(command -vp nvim 2> /dev/null || command -vp vi 2> /dev/null) 
 export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
+if (( ${+commands[java]} ))
+then
+	export JAVA_HOME=$(java -XshowSettings:properties 2>&1 |grep java.home|awk '{print $3}')
+fi
 
 [[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
 [[ -d ~/go/bin ]] && export PATH=$PATH:~/go/bin

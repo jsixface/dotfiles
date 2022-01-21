@@ -10,8 +10,7 @@ cp ${_curr_dir}/dircolors ~/.dircolors
 cp ${_curr_dir}/bin/* ~/bin/
 
 
-if [[ `which zsh` ]]
-then
+if command -v zsh &> /dev/null; then
 	if [[ ! -d ~/.oh-my-zsh ]] 
 	then
 		sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
