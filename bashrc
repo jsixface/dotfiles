@@ -43,6 +43,7 @@ if command -v docker &> /dev/null; then
     alias dkr='docker run -it --rm -v $PWD:/mydir'
     alias dkrme='docker run -it --rm -v $PWD:/mydir --user 1000:1000'
     alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
+	alias dtail="docker logs --follow --tail 100"
 fi
 
 
