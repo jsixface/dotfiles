@@ -24,7 +24,7 @@
     "projectKey": "EN",
     "siteId": "120f530b-e4f0-42c4-8a7f-078804a29f5a"
   },
-  "debug.console.fontSize": 16,
+"debug.console.fontSize": 16,
   "diffEditor.renderSideBySide": true,
   "editor.fontFamily": "'JetBrains Mono Medium', monospace",
   "editor.fontSize": 14,
@@ -55,7 +55,7 @@
   ],
   "python.formatting.provider": "yapf",
   "python.jediEnabled": false,
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Default",
   "python.pythonPath": "/bin/python",
   "python.workspaceSymbols.exclusionPatterns": [],
   "redhat.telemetry.enabled": false,
@@ -69,7 +69,6 @@
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#666"
   },
-  "workbench.colorTheme": "Monokai Dimmed",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Monochrome Icons",
   "workbench.startupEditor": "newUntitledFile",
@@ -77,5 +76,10 @@
   "yaml.schemas": {
     "file:///home/sixface/.vscode/extensions/atlassian.atlascode-2.8.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "zenMode.hideTabs": false
+  "zenMode.hideTabs": false,
+  "python.analysis.extraPaths": [
+    "${workspaceRoot}/lib/python3.6/site-packages/"
+  ],
+  "python.analysis.completeFunctionParens": true,
+  "workbench.colorTheme": "Monokai Dimmed"
 }

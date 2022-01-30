@@ -15,6 +15,7 @@
 [core]
 	quotepath = false
 	eol = lf
+	autocrlf = input
 [diff]
 	tool = vimdiff
 [pull]
