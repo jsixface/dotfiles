@@ -13,7 +13,6 @@ plugins=(\
         fzf \
 		git \
         systemd \
-        z \
         zsh-autosuggestions \
         zsh-dircolors-solarized )
 
@@ -44,6 +43,13 @@ then
 fi
 
 [[ -f ~/.local/zprofile ]] && source ~/.local/zprofile
+
+if command -v zoxide &>/dev/null 
+then
+	eval "$(zoxide init --cmd j zsh)"
+else
+	plugins+=(z)
+fi
 
 
 # Stop homebrew from upgrading index while downloading new apps

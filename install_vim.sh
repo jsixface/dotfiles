@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd "`dirname $0`"
-_gitdir=`pwd --physical`
+_gitdir=$(readlink -f $PWD)
 
 [[ -d ~/.config ]] || mkdir ~/.config
 ln -sf ${_gitdir}/vims ~/.config/nvim

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_curr_dir=$(pwd --physical)
+_curr_dir=$(readlink -f $PWD)
 
 [[ -d ~/bin ]] || mkdir ~/bin
 
