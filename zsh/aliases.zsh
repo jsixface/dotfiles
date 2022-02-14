@@ -1,6 +1,4 @@
-
-alias ..='cd ..'
-
+## LS aliases
 alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
@@ -37,9 +35,11 @@ if (( ${+commands[batcat]} )); then
 		alias bat=batcat
 	fi
 fi
-if (( ${+commands[bat]} )); then
+if command -v bat &>/dev/null; then
 	alias -g L='| bat --pager "less -R"'
-	alias -g LL="2>&1 | bat"
+	alias -g LL='2>&1 | bat --pager "less -R"'
+	alias les=$(command -vp less)
+	alias less='bat --pager less'
 else
 	alias -g L="| less -R"
 	alias -g LL="2>&1 | less"
@@ -127,3 +127,20 @@ function cd() {
 			;;
 	esac
 }
+
+function levelup() {
+	case $1 in
+		[1-9]* )
+			local i=$1
+			while [[ $i -gt 1 ]]; do
+				builtin cd ..
+				i=$(( $i - 1 ))
+			done
+			cd ..
+			;;
+		*)
+			cd ..
+			;;
+	esac
+}
+alias ..=levelup

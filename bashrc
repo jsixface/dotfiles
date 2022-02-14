@@ -1,4 +1,7 @@
-########## Aliases come first ##########
+[[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
+[[ -d ~/go/bin ]] && export PATH=$PATH:~/go/bin
+[[ -d ~/bin ]] && export PATH=$PATH:~/bin
+
 
 alias -g G='| grep -i'
 alias ..='cd ..'
@@ -73,6 +76,23 @@ function cd() {
 	esac
 }
 
+function levelup() {
+	case $1 in
+		[1-9]* )
+			local i=$1
+			while [[ $i -gt 1 ]]; do
+				builtin cd ..
+				i=$(( $i - 1 ))
+			done
+			cd ..
+			;;
+		*)
+			cd ..
+			;;
+	esac
+}
+alias ..=levelup
+
 ########## Further customizations ##########
 
 if command -v java &> /dev/null; then
@@ -83,6 +103,3 @@ export EDITOR=$(command -vp nvim 2> /dev/null || command -v vi 2> /dev/null)
 export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
-[[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
-[[ -d ~/go/bin ]] && export PATH=$PATH:~/go/bin
-[[ -d ~/bin ]] && export PATH=$PATH:~/bin
