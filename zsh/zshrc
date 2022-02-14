@@ -13,6 +13,7 @@ plugins=(\
         fzf \
 		git \
         systemd \
+		z \
         zsh-autosuggestions \
         zsh-dircolors-solarized )
 
@@ -47,8 +48,6 @@ fi
 if command -v zoxide &>/dev/null 
 then
 	eval "$(zoxide init --cmd j zsh)"
-else
-	plugins+=(z)
 fi
 
 
