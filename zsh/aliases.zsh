@@ -36,10 +36,12 @@ if (( ${+commands[batcat]} )); then
 	fi
 fi
 if command -v bat &>/dev/null; then
-	alias -g L='| bat --pager "less -R"'
-	alias -g LL='2>&1 | bat --pager "less -R"'
+	export BAT_STYLE=grid,header,snip
+	export BAT_PAGER="/bin/less -R"
+	alias -g L='| bat'
+	alias -g LL='2>&1 | bat'
 	alias les=$(command -vp less)
-	alias less='bat --pager less'
+	alias less='bat --paging=always'
 else
 	alias -g L="| less -R"
 	alias -g LL="2>&1 | less"
