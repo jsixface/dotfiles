@@ -1,9 +1,0 @@
-# Config for sway
-#
-# Read `man 5 sway` for a complete reference.
-
-# user config directory
-include $HOME/.config/sway/conf.d/*
-include $HOME/.local/sway/config
-# only enable this if every app you use is compatible with wayland
-# xwayland disable
