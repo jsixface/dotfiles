@@ -20,15 +20,15 @@
 [profiles]
   [[default]]
     icon_bell = False
-    background_color = "#282828"
     cursor_blink = False
     cursor_color = "#aaaaaa"
     font = Roboto Mono for Powerline 14
-    foreground_color = "#babdb6"
+    foreground_color = "#00ff00"
     scrollback_infinite = True
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#16504b:#eee8d5:#19788f:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
     word_chars = "-,./?%&#:_~"
     use_system_font = False
+    bold_is_bright = True
     copy_on_selection = True
   [[Day time]]
     icon_bell = False

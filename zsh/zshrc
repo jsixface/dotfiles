@@ -9,7 +9,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 # Stop homebrew from upgrading index while downloading new apps
 HOMEBREW_NO_AUTO_UPDATE=1
-ZSH_THEME="agnoster"
+ ZSH_THEME=simple
 
 zstyle ':omz:update' frequency 30
 export _Z_CMD=j
@@ -38,6 +38,7 @@ fi
 # To bind ctrl-space to accept autosuggest
 bindkey '^ ' autosuggest-accept
 
+export PROMPT="%{$fg[green]%}%D{%H:%M:%S} %{$reset_color%}%{$fg_bold[red]%}♠ %m %{$reset_color%}%{$fg[green]%}%3~ %{$fg_bold[yellow]%}⇒ %{$reset_color%}"
 
 [[ -f ~/.local/zprofile ]] && source ~/.local/zprofile
 
