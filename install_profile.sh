@@ -5,6 +5,7 @@ _curr_dir=$(readlink -f $PWD)
 [[ -d ~/bin ]] || mkdir ~/bin
 
 ln -vsf ${_curr_dir}/gitconfig ~/.gitconfig
+ln -vsf ${_curr_dir}/ideavimrc ~/.ideavimrc
 
 cp ${_curr_dir}/dircolors ~/.dircolors
 cp ${_curr_dir}/bin/* ~/bin/
