@@ -85,7 +85,7 @@ alias dig="dig +nocmd +noall +answer"
 if (( ${+commands[docker]} ))
 then
 	alias dkr='docker run -it --rm -v $PWD:/mydir'
-	alias dkrme='docker run -it --rm -v $PWD:/mydir --user 1000:1000'
+	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v $PWD:/mydir -v /etc/passwd:/etc/passwd -w /mydir --user $myid'
 	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
 	alias dtail="docker logs --follow --tail 100"
 fi
