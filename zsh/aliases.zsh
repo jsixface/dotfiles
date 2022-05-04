@@ -3,7 +3,7 @@ alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 alias ll='ls -l'      #long list
-alias lart='ls -1Fcart'
+alias lr='ls -lrt'
 
 alias t=tree
 alias tl='tree -L 2'
@@ -23,8 +23,9 @@ then
 fi
 
 # some more ls aliases
-if (( ${+commands[exa]} )); then
+if command -v exa &> /dev/null; then
 	alias ls=exa
+	alias lr="exa -l -snew"
 elif [[ `uname` = Darwin ]]; then
 	alias ls="ls -G" # -G option for ls is for colors in mac but not in linux
 fi
@@ -37,7 +38,7 @@ if (( ${+commands[batcat]} )); then
 fi
 if command -v bat &>/dev/null; then
 	export BAT_STYLE=grid,header,snip
-	export BAT_PAGER="/bin/less -R"
+	export BAT_PAGER="$(command -pv less) -R"
 	alias -g L='| bat'
 	alias -g LL='2>&1 | bat'
 	alias les=$(command -vp less)

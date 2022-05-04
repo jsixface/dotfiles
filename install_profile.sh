@@ -36,6 +36,7 @@ The zsh-dircolors-solarized plugin offers two commands:
 'setupsolarized' which installs a theme and saves the current configuration to the configuration file ($HOME/.zsh-dircolors.config by default). 
 Without any argument, setupsolarized will use the theme dircolors.ansi-universal.
 "
+mkdir ~/.config
 cd ~/.config
 for entry in ${_curr_dir}/dot_config/* ; do
 	ln -vsf ${entry} 
