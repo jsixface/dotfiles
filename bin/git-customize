@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if command -v p4merge &> /dev/null; then
+	p4merge=$(command -v p4merge)
+	git config merge.tool p4m
+	git config mergetool.p4m.cmd $p4merge' "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"'
+	git config mergetool.p4m.trustExitCode false
+	git config mergetool.keepBackup false
+else
+    echo "p4merge not found"
+fi

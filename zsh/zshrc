@@ -27,9 +27,9 @@ plugins+=(\
         docker \
         docker-compose \
         fzf \
-		git \
+		    git \
         systemd \
-		z \
+		    z \
         zsh-autosuggestions \
         zsh-dircolors-solarized )
 
@@ -39,7 +39,7 @@ export EDITOR=$(command -vp nvim 2> /dev/null || command -vp vi 2> /dev/null)
 export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
-if (( ${+commands[java]} ))
+if command -v java &> /dev/null
 then
 	export JAVA_HOME=$(java -XshowSettings:properties 2>&1 |grep java.home|awk '{print $3}')
 fi

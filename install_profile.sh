@@ -1,14 +1,14 @@
 #!/bin/bash
 
-_curr_dir=$(readlink -f $PWD)
+_curr_dir=$(readlink -f "$PWD")
 
 [[ -d ~/bin ]] || mkdir ~/bin
 
-ln -vsf ${_curr_dir}/gitconfig ~/.gitconfig
-ln -vsf ${_curr_dir}/ideavimrc ~/.ideavimrc
+ln -vsf "${_curr_dir}/gitconfig" ~/.gitconfig
+ln -vsf "${_curr_dir}/ideavimrc" ~/.ideavimrc
 
-cp ${_curr_dir}/dircolors ~/.dircolors
-cp ${_curr_dir}/bin/* ~/bin/
+cp "${_curr_dir}/dircolors" ~/.dircolors
+cp "${_curr_dir}"/bin/* ~/bin/
 
 
 if command -v zsh &> /dev/null; then
@@ -17,10 +17,10 @@ if command -v zsh &> /dev/null; then
 		sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 	fi
 
-	ln -vsf ${_curr_dir}/zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh 
-	ln -vsf ${_curr_dir}/zsh/zshrc ~/.zshrc
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-	git clone --recursive https://github.com/joel-porquet/zsh-dircolors-solarized ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-dircolors-solarized
+	ln -vsf "${_curr_dir}"/zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh 
+	ln -vsf "${_curr_dir}"/zsh/zshrc ~/.zshrc
+	git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+	git clone --recursive https://github.com/joel-porquet/zsh-dircolors-solarized "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-dircolors-solarized
 fi
 
 
@@ -36,10 +36,17 @@ The zsh-dircolors-solarized plugin offers two commands:
 'setupsolarized' which installs a theme and saves the current configuration to the configuration file ($HOME/.zsh-dircolors.config by default). 
 Without any argument, setupsolarized will use the theme dircolors.ansi-universal.
 "
-mkdir ~/.config
-cd ~/.config
-for entry in ${_curr_dir}/dot_config/* ; do
-	ln -vsf ${entry} 
-done
-cd ${_curr_dir}
 
+# Install the dot config stuff
+[[ -d ~/.config ]] || mkdir ~/.config
+cd ~/.config || exit 1
+for entry in "${_curr_dir}"/dot_config/* ; do
+	ln -vsf "${entry}" 
+done
+
+if [[ "$(uname)" = "Darwin" ]]; then 
+	mkdir -p "$HOME/Library/Application Support/VSCodium/User"
+	ln -s "$_curr_dir/vscode-mac"/keybindings.json "$HOME/Library/Application Support/VSCodium/User"/keybindings.json
+fi
+
+cd "${_curr_dir}"

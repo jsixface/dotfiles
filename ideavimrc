@@ -1,5 +1,5 @@
 "" Source your .vimrc
-source ~.config/nvim/plain.vim
+source ~/.config/nvim/plain.vim
 
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the

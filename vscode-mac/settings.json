@@ -1,36 +1,10 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "atlascode.bitbucket.enabled": true,
-  "atlascode.jira.jqlList": [
-    {
-      "enabled": true,
-      "id": "855f471a-5cdc-4508-8e44-25c226dd4603",
-      "monitor": true,
-      "name": "My getbevi Issues",
-      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
-      "siteId": "120f530b-e4f0-42c4-8a7f-078804a29f5a"
-    }
-  ],
-  "atlascode.jira.lastCreateSiteAndProject": {
-    "projectKey": "EN",
-    "siteId": "120f530b-e4f0-42c4-8a7f-078804a29f5a"
-  },
-"debug.console.fontSize": 16,
+  "debug.console.fontSize": 16,
   "diffEditor.renderSideBySide": true,
   "editor.fontFamily": "'JetBrains Mono Medium', monospace",
   "editor.fontSize": 14,
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "editor.wordWrap": "on",
   "editor.fontLigatures": true,
   "extensions.ignoreRecommendations": true,
