@@ -2,7 +2,7 @@
 {
   "debug.console.fontSize": 16,
   "diffEditor.renderSideBySide": true,
-  "editor.fontFamily": "'JetBrains Mono Medium', monospace",
+  "editor.fontFamily": "Menlo, 'Fira Code', 'Meslo LG M'",
   "editor.fontSize": 14,
   "editor.rulers": [100],
   "editor.wordWrap": "on",
