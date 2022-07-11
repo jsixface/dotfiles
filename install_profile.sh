@@ -47,6 +47,7 @@ done
 if [[ "$(uname)" = "Darwin" ]]; then 
 	mkdir -p "$HOME/Library/Application Support/VSCodium/User"
 	ln -s "$_curr_dir/vscode-mac"/keybindings.json "$HOME/Library/Application Support/VSCodium/User"/keybindings.json
+	ln -s "$_curr_dir/vscode-mac"/settings.json "$HOME/Library/Application Support/VSCodium/User"/settings.json
 fi
 
 cd "${_curr_dir}"

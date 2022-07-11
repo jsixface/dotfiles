@@ -1,4 +1,4 @@
-// Place your settings in this file to overwrite the default settings
+
 {
   "debug.console.fontSize": 16,
   "diffEditor.renderSideBySide": true,
@@ -8,6 +8,12 @@
   "editor.wordWrap": "on",
   "editor.fontLigatures": true,
   "extensions.ignoreRecommendations": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 300000,
   "files.eol": "\n",
   "files.exclude": {
     "**/._sync_*": true,
@@ -18,9 +24,6 @@
   "go.useLanguageServer": true,
   "jupyter.appendResults": true,
   "python.autoComplete.addBrackets": true,
-  "python.autoComplete.extraPaths": [
-    "${workspaceRoot}/lib/python3.6/site-packages/"
-  ],
   "python.autoComplete.preloadModules": [
     "numpy",
     "pandas",
@@ -30,30 +33,25 @@
   "python.formatting.provider": "yapf",
   "python.jediEnabled": false,
   "python.languageServer": "Default",
-  "python.pythonPath": "/bin/python",
   "python.workspaceSymbols.exclusionPatterns": [],
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
+  "workbench.preferredDarkColorTheme": "Solarized Dark",
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.colorTheme": "Solarized Light",
+  "window.autoDetectColorScheme": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
-  "terminal.integrated.fontSize": 16,
   "update.mode": "manual",
-  "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#666"
   },
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Monochrome Icons",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 4,
-  "yaml.schemas": {
-    "file:///home/sixface/.vscode/extensions/atlassian.atlascode-2.8.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
   "zenMode.hideTabs": false,
   "python.analysis.extraPaths": [
     "${workspaceRoot}/lib/python3.6/site-packages/"
   ],
-  "python.analysis.completeFunctionParens": true,
-  "workbench.colorTheme": "Monokai Dimmed"
+  "python.analysis.completeFunctionParens": true
 }
