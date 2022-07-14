@@ -74,6 +74,13 @@ else
 fi
 
 alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs"
+
+if command -v dust &> /dev/null ; then
+	alias dush='dust --no-percent-bars --depth 0'
+else
+	alias dush="du -sh"
+fi
+
 alias rf="rm -rf"
 alias psef="ps -ef | grep -i"
 alias rtfm=man
@@ -87,7 +94,7 @@ if (( ${+commands[docker]} ))
 then
 	alias dkr='docker run -it --rm -v $PWD:/mydir -w /mydir'
 	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v $PWD:/mydir -v /etc/passwd:/etc/passwd -w /mydir --user $myid'
-	alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
+	alias dps='docker ps --format="table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}"'
 	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
 	alias dtail="docker logs --follow --tail 100"
 fi
@@ -99,7 +106,7 @@ fi
 
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias grep='grep --color'
-alias path='echo $PATH | sed "s/:/\n/g" | sort' # Quick display path
+alias path='echo $PATH | sed "s/:/\n/g"' # Quick display path
 
 ## Arch linux related alias
 if (( ${+commands[pacman]} ))

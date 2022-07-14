@@ -105,5 +105,18 @@
         "key": "shift+cmd+d",
         "command": "editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+cmd+v",
+        "command": "go.godoctor.var"
+    },
+    {
+        "key": "alt+cmd+m",
+        "command": "go.godoctor.extract"
+    },
+    {
+        "key": "ctrl+cmd+t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
     }
 ]

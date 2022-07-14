@@ -19,8 +19,8 @@ if command -v zsh &> /dev/null; then
 
 	ln -vsf "${_curr_dir}"/zsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh 
 	ln -vsf "${_curr_dir}"/zsh/zshrc ~/.zshrc
-	git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
-	git clone --recursive https://github.com/joel-porquet/zsh-dircolors-solarized "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-dircolors-solarized
+	git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+	git clone --recursive https://github.com/joel-porquet/zsh-dircolors-solarized "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-dircolors-solarized
 fi
 
 
@@ -36,6 +36,10 @@ The zsh-dircolors-solarized plugin offers two commands:
 'setupsolarized' which installs a theme and saves the current configuration to the configuration file ($HOME/.zsh-dircolors.config by default). 
 Without any argument, setupsolarized will use the theme dircolors.ansi-universal.
 "
+# Install SSH config
+[[ -d ~/.ssh/config.d ]] || mkdir -p ~/.ssh/config.d
+ln -s "$_curr_dir/ssh_config" ~/.ssh/config
+
 
 # Install the dot config stuff
 [[ -d ~/.config ]] || mkdir ~/.config

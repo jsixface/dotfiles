@@ -20,3 +20,7 @@
 	tool = vimdiff
 [pull]
 	ff = only
+[safe]
+	directory = /home/sixface/git/mc
+[init]
+	defaultBranch = master

@@ -3,7 +3,7 @@
 
 [[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
 [[ -d ~/go/bin ]] && export PATH=$PATH:~/go/bin
-[[ -d ~/bin ]] && export PATH=$PATH:~/bin
+[[ -d ~/bin ]] && export PATH=~/bin:$PATH
 [[ -f ~/.local/zprofile ]] && source ~/.local/zprofile
 
 
@@ -26,12 +26,16 @@ export _Z_CMD=j
 plugins+=(\
         docker \
         docker-compose \
-        fzf \
-		    git \
+	    git \
         systemd \
-		    z \
+	    z \
         zsh-autosuggestions \
         zsh-dircolors-solarized )
+
+if command -v fzf &> /dev/null
+then
+	plugins+=( fzf )
+fi
 
 source $ZSH/oh-my-zsh.sh
 

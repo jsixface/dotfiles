@@ -1,4 +1,3 @@
-
 {
   "debug.console.fontSize": 16,
   "diffEditor.renderSideBySide": true,
@@ -6,7 +5,6 @@
   "editor.fontSize": 14,
   "editor.rulers": [100],
   "editor.wordWrap": "on",
-  "editor.fontLigatures": true,
   "extensions.ignoreRecommendations": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "gitlens.currentLine.enabled": false,
@@ -42,10 +40,7 @@
   "window.autoDetectColorScheme": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "update.mode": "manual",
-  "workbench.colorCustomizations": {
-    "editor.selectionBackground": "#666"
-  },
+  "update.mode": "start",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 4,
@@ -53,5 +48,16 @@
   "python.analysis.extraPaths": [
     "${workspaceRoot}/lib/python3.6/site-packages/"
   ],
-  "python.analysis.completeFunctionParens": true
+  "python.analysis.completeFunctionParens": true,
+  "git.allowForcePush": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.colorCustomizations": {
+    "editor.findMatchBackground": "#7597ab",
+    "editor.findMatchHighlightBackground": "#7ebfb3",
+    "editor.selectionBackground": "#83a0b1",
+    "editor.selectionHighlightBackground": "#7ebfb3"
+  }
 }
