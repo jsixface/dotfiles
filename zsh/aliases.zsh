@@ -59,18 +59,16 @@ alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
 alias yolo='git add .; git commit -am "betterer code"'
 
-
-if (( ${+commands[snap]} )); then
-	alias ubuntu-update="sudo apt update && \
-			apt list --upgradable && \
-			sudo apt dist-upgrade -y && \
-			sudo apt autoremove -y && \
-			sudo snap refresh"
-else
-	alias ubuntu-update="sudo apt update && \
-			apt list --upgradable && \
-			sudo apt dist-upgrade -y && \
-			sudo apt autoremove -y"
+if [[ `uname` = "Darwin" ]]; then
+	alias update-os="brew update && brew upgrade && brew cleanup --prune=all"
+else 
+	update_cmd="sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y"
+	if (( ${+commands[snap]} )); then
+		alias update-os="$update_cmd && sudo snap refresh"
+	else
+		alias update-os="$update_cmd"
+	fi
+	unset update_cmd
 fi
 
 alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs"
@@ -99,10 +97,6 @@ then
 	alias dtail="docker logs --follow --tail 100"
 fi
 
-if [[ $TERM == "alacritty" ]]
-then
-	alias ssh="TERM=xterm-256color ssh"
-fi
 
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias grep='grep --color'

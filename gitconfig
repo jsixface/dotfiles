@@ -20,6 +20,7 @@
 	tool = vimdiff
 [pull]
 	ff = only
+	rebase = true
 [safe]
 	directory = /home/sixface/git/mc
 [init]
