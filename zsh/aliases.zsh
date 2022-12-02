@@ -15,43 +15,57 @@ alias untarz="tar -xzvf"
 alias tarc='tar -cvf'
 alias tarz='tar -czvf'
 
+nul=/dev/null
+
+alias -g G='| grep -i'
 alias vii='vim -R'
-if (( ${+commands[nvim]} ))
-then
+
+# Prefer neovim > vim > vi
+if whence nvim &> $nul || whence neovim &> $nul; then
 	alias vi=nvim
 	alias vim=nvim
+elif whence vim &> $nul; then
+	alias vi=vim
 fi
 
-# some more ls aliases
-if command -v exa &> /dev/null; then
-	alias ls=exa
-	alias lr="exa -l -snew"
-elif [[ `uname` = Darwin ]]; then
+if [[ `uname` = Darwin ]]; then
 	alias ls="ls -G" # -G option for ls is for colors in mac but not in linux
 fi
 
-alias -g G='| grep -i'
-if (( ${+commands[batcat]} )); then
-	if (( ! ${+commands[bat]} )); then
-		alias bat=batcat
-	fi
+if whence dust &>$nul; then
+	alias dush='dust --no-percent-bars --depth 0'
+else
+	alias dush="du -sh"
 fi
-if command -v bat &>/dev/null; then
+
+if whence batcat &>$nul ; then
+	alias bat=batcat
+fi
+if whence bat &>$nul; then
+	lesscmd=$(whence -p less)
 	export BAT_STYLE=grid,header,snip
-	export BAT_PAGER="$(command -pv less) -R"
+	export BAT_THEME=gruvbox-dark
+	export BAT_PAGER="$lesscmd -R"
 	alias -g L='| bat'
 	alias -g LL='2>&1 | bat'
-	alias les=$(command -vp less)
+	alias les=$lesscmd
 	alias less='bat --paging=always'
+	alias cat='bat --paging=never'
 else
 	alias -g L="| less -R"
 	alias -g LL="2>&1 | less"
 fi
 
-if (( ${+commands[fdfind]} )); then
-	if (( ! ${+commands[fd]} )); then
-		alias fd=fdfind
-	fi
+if whence fdfind &> $nul; then
+	alias fd=fdfind
+fi
+
+if whence docker &>$nul; then
+	alias dkr='docker run -it --rm -v $PWD:/mydir -w /mydir'
+	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v $PWD:/mydir -v /etc/passwd:/etc/passwd -w /mydir --user $myid'
+	alias dps='docker ps --format="table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}"'
+	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
+	alias dtail="docker logs --follow --tail 100"
 fi
 
 alias gca='git commit -a'
@@ -63,7 +77,7 @@ if [[ `uname` = "Darwin" ]]; then
 	alias update-os="brew update && brew upgrade && brew cleanup --prune=all"
 else 
 	update_cmd="sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y"
-	if (( ${+commands[snap]} )); then
+	if whence snap &>$nul; then
 		alias update-os="$update_cmd && sudo snap refresh"
 	else
 		alias update-os="$update_cmd"
@@ -72,13 +86,6 @@ else
 fi
 
 alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs"
-
-if command -v dust &> /dev/null ; then
-	alias dush='dust --no-percent-bars --depth 0'
-else
-	alias dush="du -sh"
-fi
-
 alias rf="rm -rf"
 alias psef="ps -ef | grep -i"
 alias rtfm=man
@@ -88,25 +95,9 @@ alias shazam="sudo su"
 
 alias dig="dig +nocmd +noall +answer"
 
-if (( ${+commands[docker]} ))
-then
-	alias dkr='docker run -it --rm -v $PWD:/mydir -w /mydir'
-	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v $PWD:/mydir -v /etc/passwd:/etc/passwd -w /mydir --user $myid'
-	alias dps='docker ps --format="table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}"'
-	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
-	alias dtail="docker logs --follow --tail 100"
-fi
-
-
 alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias grep='grep --color'
 alias path='echo $PATH | sed "s/:/\n/g"' # Quick display path
-
-## Arch linux related alias
-if (( ${+commands[pacman]} ))
-then
-	alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
-fi
 
 
 function lstar() {
