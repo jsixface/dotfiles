@@ -4,7 +4,7 @@ Host *
   ConnectTimeout 30
   ControlMaster auto
   ControlPersist 30m
-  ControlPath ~/.ssh/socket-%r-at-%h-%p
+  ControlPath ~/.ssh/socket-%r-at-%k-%p
   ForwardAgent no
   ForwardX11 no
   GSSAPIAuthentication no
@@ -19,4 +19,9 @@ Host *
   StrictHostKeyChecking ask
   Tunnel no
   VisualHostKey yes
-  Include config.d/*
+
+Include config.d/*
+
+Host skynet skynet.* 192.168.123.4
+  User sixface
+
