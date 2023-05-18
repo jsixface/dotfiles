@@ -37,7 +37,13 @@ done
 
 if command -v fzf &> /dev/null
 then
-	plugins+=( fzf )
+	_dest=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
+	if [[ ! -d $_dest ]]
+	then
+		git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git $_dest
+	fi
+	unset _dest
+	plugins+=( fzf-zsh-plugin )
 fi
 
 source $ZSH/oh-my-zsh.sh
