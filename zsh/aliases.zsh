@@ -87,10 +87,14 @@ fi
 
 alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs"
 
-if command -v dust &> /dev/null ; then
+if command -v dust &> $nul; then
 	alias dush='dust --no-percent-bars --depth 0'
 else
 	alias dush="du -sh"
+fi
+
+if command -v fnm &> $nul; then
+	alias nvm=fnm
 fi
 
 alias rf="rm -rf"

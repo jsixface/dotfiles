@@ -15,3 +15,15 @@
   - pygmalion
   - refined
   - smt
+
+## Useful tools
+  - bat
+  - fzf
+  - ripgrep
+  - zoxide
+  - dust
+  - fd
+  - htop
+  - jq
+  - tealdeer
+  - xh
