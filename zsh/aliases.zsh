@@ -98,7 +98,7 @@ if command -v fnm &> $nul; then
 fi
 
 alias rf="rm -rf"
-alias psef="ps -ef | grep -i"
+alias psef="ps -ef |grep -v grep | grep -i"
 alias rtfm=man
 alias wtf=dmesg
 alias please=sudo
