@@ -85,7 +85,7 @@ else
 	unset update_cmd
 fi
 
-alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs"
+alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs -x overlay"
 
 if command -v dust &> $nul; then
 	alias dush='dust --no-percent-bars --depth 0'
