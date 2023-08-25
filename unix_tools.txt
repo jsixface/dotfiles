@@ -1,4 +1,4 @@
-# owner | repo | pattern(can be empty) | dest_name
+# repo | owner | pattern(can be empty) | dest_name
 bat|sharkdp|bat|bat
 dust|bootandy|dust|dust
 fd|sharkdp|fd|fd
