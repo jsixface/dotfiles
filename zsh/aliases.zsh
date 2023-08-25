@@ -63,7 +63,7 @@ fi
 if whence docker &>$nul; then
 	alias dkr='docker run -it --rm -v $PWD:/mydir -w /mydir'
 	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v $PWD:/mydir -v /etc/passwd:/etc/passwd -w /mydir --user $myid'
-	alias dps='docker ps --format="table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}"'
+	alias dps='docker ps --format="table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}}"'
 	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
 	alias dtail="docker logs --follow --tail 100"
 fi

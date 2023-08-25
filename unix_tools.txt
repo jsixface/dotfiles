@@ -1,0 +1,11 @@
+# owner | repo | pattern(can be empty) | dest_name
+bat|sharkdp|bat|bat
+dust|bootandy|dust|dust
+fd|sharkdp|fd|fd
+fzf|junegunn|fzf|fzf
+ripgrep|BurntSushi|rg|rg
+tealdeer|dbrgn||tldr
+xh|ducaale|xh|xh
+zoxide|ajeetdsouza|zoxide|zoxide
+# Last line should be empty for `read` to work
+# leave pattern to be empty to not extract tar
