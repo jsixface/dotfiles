@@ -32,3 +32,5 @@ Host skynet skynet.* 192.168.123.4
 Host beryllium beryllium.* 192.168.123.10
   User sixface
 
+Host arumugam.net sixface.in wcpgw.in
+	User opc
