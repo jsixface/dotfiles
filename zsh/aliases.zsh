@@ -73,17 +73,24 @@ alias gst='git status -bs'
 alias glo='git log --oneline --decorate -10'
 alias yolo='git add .; git commit -am "betterer code"'
 
-if [[ `uname` = "Darwin" ]]; then
-	alias update-os="brew update && brew upgrade && brew cleanup --prune=all"
-else 
-	update_cmd="sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y"
-	if whence snap &>$nul; then
-		alias update-os="$update_cmd && sudo snap refresh"
-	else
-		alias update-os="$update_cmd"
+
+update-sw () {
+	if [[ `uname` = "Darwin" ]]; then
+		brew update && brew upgrade && brew cleanup --prune=all
+	elif whence apt &>$nul ; then
+		sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y
+		if whence snap &>$nul; then
+			sudo snap refresh
+		fi
+	elif whence zypper &>$nul ; then
+		sudo zypper dist-upgrade
+		for i in $(zypper packages --unneeded | grep '|' | awk -F'|' '{print $3}' | grep -v Name)
+		do
+			echo sudo zypper remove --clean-deps -y $i
+			sudo zypper remove --clean-deps -y $i
+		done
 	fi
-	unset update_cmd
-fi
+}
 
 alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs -x overlay"
 
