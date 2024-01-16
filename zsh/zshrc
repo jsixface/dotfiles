@@ -46,6 +46,9 @@ then
 	plugins+=( fzf-zsh-plugin )
 fi
 
+command -v firewall-cmd &>/dev/null && plugins+=( firewalld )
+command -v systemctl &>/dev/null && plugins+=( systemd )
+
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=$(command -vp nvim 2> /dev/null || command -vp vi 2> /dev/null) 
@@ -62,13 +65,10 @@ bindkey '^ ' autosuggest-accept
 
 export PROMPT="%{$fg[green]%}%D{%H:%M:%S} %{$reset_color%}%{$fg_bold[red]%}♠ %m %{$reset_color%}%{$fg[green]%}%3~ %{$fg_bold[yellow]%}⇒ %{$reset_color%}"
 
-command -v firewall-cmd &>/dev/null && plugins+=( firewalld )
-command -v systemctl &>/dev/null && plugins+=( systemd )
-
 command -v zoxide &>/dev/null && eval "$(zoxide init --cmd j zsh)"
-
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
