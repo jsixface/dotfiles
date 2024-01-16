@@ -62,11 +62,10 @@ bindkey '^ ' autosuggest-accept
 
 export PROMPT="%{$fg[green]%}%D{%H:%M:%S} %{$reset_color%}%{$fg_bold[red]%}♠ %m %{$reset_color%}%{$fg[green]%}%3~ %{$fg_bold[yellow]%}⇒ %{$reset_color%}"
 
+command -v firewall-cmd &>/dev/null && plugins+=( firewalld )
+command -v systemctl &>/dev/null && plugins+=( systemd )
 
-if command -v zoxide &>/dev/null 
-then
-	eval "$(zoxide init --cmd j zsh)"
-fi
+command -v zoxide &>/dev/null && eval "$(zoxide init --cmd j zsh)"
 
 
 
