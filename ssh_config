@@ -1,7 +1,7 @@
-Host skynet.home
-  HostName skynet.home
+Host helium.home
+  HostName helium.home
 
-Host skynet skynet.* 192.168.123.4
+Host helium helium.* 192.168.123.4
   User sixface
 
 Host beryllium beryllium.* 192.168.123.10
