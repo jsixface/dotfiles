@@ -1,0 +1,9 @@
+#!/bin/bash
+
+printf "Enter name: "
+read name
+git config user.name "$name"
+
+printf "Enter email: "
+read email
+git config user.email "$email"
