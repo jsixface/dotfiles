@@ -104,6 +104,7 @@ if command -v fnm &> $nul; then
 	alias nvm=fnm
 fi
 
+alias gw="./gradlew"
 alias rf="rm -rf"
 alias psef="ps -ef |grep -v grep | grep -i"
 alias rtfm=man
