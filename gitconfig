@@ -37,3 +37,6 @@
 	repo = /Users/aru/workspace/backend_client
 [gpg]
 	format = ssh
+[pager]
+	branch = false
+	config = false
