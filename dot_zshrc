@@ -1,0 +1,184 @@
+# See https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
+
+[[ -d /usr/local/go/bin ]] && export PATH="$PATH:/usr/local/go/bin"
+[[ -d ~/go/bin ]] && export PATH="$PATH:~/go/bin"
+[[ -d ~/bin ]] && export PATH="~/bin:$PATH"
+[[ -f ~/.local/zprofile ]] && source ~/.local/zprofile
+[[ -z "$ZSH" ]] && export ZSH="$HOME/.oh-my-zsh"
+
+nul=/dev/null
+### Completions need to be set before `compinit`
+command -v brew &>$nul && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+HOMEBREW_NO_AUTO_UPDATE=1
+zstyle ':omz:update' frequency 60
+ZSH_THEME=simple
+
+# Add plugins. The local zprofile might initialize some
+plugs=(\
+        docker \
+        docker-compose \
+        git \
+        systemd \
+        zsh-autosuggestions \
+        zsh-dircolors-solarized )
+
+for plug ($plugs); do
+  [[ -d $ZSH/plugins/$plug || -d $ZSH/custom/plugins/$plug ]] && plugins+=($plug)
+done
+
+command -v fzf &> $nul && plugins+=( fzf )
+command -v firewall-cmd &>$nul && plugins+=( firewalld )
+command -v systemctl &>$nul && plugins+=( systemd )
+
+source $ZSH/oh-my-zsh.sh
+
+# To bind ctrl-space to accept autosuggest
+bindkey '^ ' autosuggest-accept
+command -v zoxide &>$nul && eval "$(zoxide init --cmd j zsh)"
+export PROMPT="%{$fg[green]%}%D{%H:%M:%S} %{$reset_color%}%{$fg_bold[red]%}♠ %m %{$reset_color%}%{$fg[green]%}%3~ %{$fg_bold[yellow]%}⇒ %{$reset_color%}"
+
+# Set the default editor
+export EDITOR=$(command -vp nvim 2> $nul || command -vp vi 2> $nul)
+export GIT_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+
+if command -v java &> $nul
+then
+	export JAVA_HOME=$(java -XshowSettings:properties 2>&1 |grep java.home|awk '{print $3}')
+fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Aliases
+alias -g G='| grep -i'
+alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs -x overlay"
+alias dig="dig +nocmd +noall +answer"
+alias gca='git commit -a'
+alias glo='git log --oneline --decorate -10'
+alias grep='grep --color'
+alias gst='git status -bs'
+alias gw="./gradlew"
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias ll='ls -l'      #long list
+alias lr='ls -lrt'
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias path='echo $PATH | sed "s/:/\n/g"' # Quick display path
+alias ping="ping -c 4"
+alias please=sudo
+alias psef="ps -ef |grep -v grep | grep -i"
+alias rf="rm -rf"
+alias shazam="sudo su"
+alias t2='tree -L 2'
+alias t3='tree -L 3'
+alias t=tree
+alias tarc='tar -cvf'
+alias tarz='tar -czvf'
+alias untar="tar -xvf"
+alias untarz="tar -xzvf"
+alias yolo='git add .; git commit -am "betterer code"'
+
+command -v fdfind &> $nul && alias fd=fdfind
+command -v fnm &> $nul && alias nvm=fnm
+command -v batcat &>$nul && alias bat=batcat
+# -G option for ls is for colors in mac but not in linux
+[[ `uname` = Darwin ]] && alias ls="ls -G"
+
+# Prefer neovim > vim > vi
+if command -v nvim &> $nul || command -v neovim &> $nul; then
+	alias vi=nvim
+	alias vim=nvim
+elif command -v vim &> $nul; then
+	alias vi=vim
+fi
+
+if command -v dust &>$nul; then
+	alias dush='dust --no-percent-bars --depth 0'
+else
+	alias dush="du -sh"
+fi
+
+if command -v bat &>$nul; then
+	lesscmd=$(command -v -p less)
+	export BAT_STYLE=grid,header,snip
+	export BAT_THEME=gruvbox-dark
+	export BAT_PAGER="$lesscmd -R"
+	alias -g L='| bat'
+	alias -g LL='2>&1 | bat'
+	alias les=$lesscmd
+	alias less='bat --paging=always'
+	alias cat='bat --paging=never'
+else
+	alias -g L="| less -R"
+	alias -g LL="2>&1 | less"
+fi
+
+if command -v docker &>$nul; then
+	alias dkr='docker run -it --rm'
+	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v /etc/passwd:/etc/passwd --user $myid'
+	alias dps='docker ps --format="table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.ID}}"'
+	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
+	alias dtail="docker logs --follow --tail 100"
+fi
+
+update-sw () {
+	if [[ `uname` = "Darwin" ]]; then
+		brew update && brew upgrade && brew cleanup --prune=all
+	elif command -v apt &>$nul ; then
+		sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y
+		if command -v snap &>$nul; then
+			sudo snap refresh
+		fi
+	elif command -v zypper &>$nul ; then
+		sudo zypper dist-upgrade
+		for i in $(zypper packages --unneeded | grep '|' | awk -F'|' '{print $3}' | grep -v Name)
+		do
+			echo sudo zypper remove --clean-deps -y $i
+			sudo zypper remove --clean-deps -y $i
+		done
+	fi
+}
+
+if command -v dust &> $nul; then
+	alias dush='dust --no-percent-bars --depth 0'
+else
+	alias dush="du -sh"
+fi
+
+function lstar() {
+	tar -tf $1 |less
+}
+
+function cd() {
+	case $# in
+		0)
+			builtin cd
+			;;
+
+		1)
+			builtin cd $1
+			ls
+			;;
+		*)
+			;;
+	esac
+}
+
+function levelup() {
+	case $1 in
+		[1-9]* )
+			local i=$1
+			while [[ $i -gt 1 ]]; do
+				builtin cd ..
+				i=$(( $i - 1 ))
+			done
+			cd ..
+			;;
+		*)
+			cd ..
+			;;
+	esac
+}
+alias ..=levelup

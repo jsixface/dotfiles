@@ -1,19 +1,14 @@
-# General key bindings
+# Keybindings
 
-Action | Binding
---- | ---
-Select next highlighted word | Cmd D
-Select all occurance of highlighted word | Cmd F3
-Rename Stuff | Shift F6
-Optimize imports | Cmd Shift O
-Reformat file | Cmd Shift F
-Find in file | Cmd F
-Replace in file | Cmd R
-Replace in all files | Cmd Shift R
-Sort lines ascending | F10
-Join Lines | Cmd Shift J
-File Explorer | Cmd 1
-Add cursor to end of lines | Cmd Shift L
-Duplicate lines | Cmd Shift D
-Quick documentation | F1
-Next error / warning | F2
+
+Action | Key 
+---------- | -----------
+Join lines | Cmd + Shift + J 
+Sort lines | F9
+Delete a line | Cmd + Backspace
+Move a line up / down | Opt + Up/Down
+Search for actions | Cmd + Shift + P
+Go to next problem | F2
+Rename variable | Shift + F6
+Show quick documentation | F1
+Select next occurrence of the word under caret | Ctrl + N
