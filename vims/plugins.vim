@@ -19,7 +19,7 @@ endif
 " set the runtime path to include vimplug and initialize
 call plug#begin(s:editor_root . '/plugged')
 
-
+Plug 'LnL7/vim-nix'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
