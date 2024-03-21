@@ -1,9 +1,9 @@
 # See https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
 
 [[ -d /usr/local/go/bin ]] && export PATH="$PATH:/usr/local/go/bin"
-[[ -d ~/go/bin ]] && export PATH="$PATH:~/go/bin"
-[[ -d ~/bin ]] && export PATH="~/bin:$PATH"
-[[ -f ~/.local/zprofile ]] && source ~/.local/zprofile
+[[ -d $HOME/go/bin ]] && export PATH="$PATH:$HOME/go/bin"
+[[ -d $HOME/bin ]] && export PATH="$HOME/bin:$PATH"
+[[ -f $HOME/.local/zprofile ]] && source $HOME/.local/zprofile
 [[ -z "$ZSH" ]] && export ZSH="$HOME/.oh-my-zsh"
 
 nul=/dev/null
