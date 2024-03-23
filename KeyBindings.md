@@ -4,6 +4,7 @@
 Action | Key 
 ---------- | -----------
 Join lines | Cmd + Shift + J 
+Reformat file| Cmd + Shift + L
 Sort lines | F9
 Delete a line | Cmd + Backspace
 Move a line up / down | Opt + Up/Down
