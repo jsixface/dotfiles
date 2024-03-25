@@ -81,7 +81,7 @@ alias untarz="tar -xzvf"
 alias yolo='git add .; git commit -am "betterer code"'
 
 command -v fdfind &> $nul && alias fd=fdfind
-command -v fnm &> $nul && alias nvm=fnm
+command -v fnm &> $nul && alias nvm=fnm && eval "$(fnm env )"
 command -v batcat &>$nul && alias bat=batcat
 # -G option for ls is for colors in mac but not in linux
 [[ `uname` = Darwin ]] && alias ls="ls -G"
