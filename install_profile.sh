@@ -10,6 +10,7 @@ cp -v "${_curr_dir}"/bin/* ~/bin/
 ln -vsf "$_curr_dir/dot_ssh_config" ~/.ssh/config
 ln -vsf "${_curr_dir}/dot_gitconfig" ~/.gitconfig
 ln -vsf "${_curr_dir}/dot_ideavimrc" ~/.ideavimrc
+ln -vsf "${_curr_dir}/dot_tmux.conf" ~/.tmux.conf
 
 if command -v zsh &> /dev/null; then
 	if [[ ! -d ~/.oh-my-zsh && -z "$ZSH" ]]
