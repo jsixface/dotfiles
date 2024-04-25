@@ -132,7 +132,7 @@ fi
 
 update-sw () {
 	if [[ `uname` = "Darwin" ]]; then
-		brew update && brew upgrade && brew cleanup --prune=all
+		brew update && brew upgrade && brew cleanup --prune=all && softwareupdate --install --all
 	elif command -v apt &>$nul ; then
 		sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y
 		if command -v snap &>$nul; then
