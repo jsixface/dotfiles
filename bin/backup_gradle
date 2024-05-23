@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Define the source directory and the archive directory
+source_dir="$HOME/.gradle"
+archive_dir="$HOME/gradle_archives"
+backup_to_keep=3
+
+# Create the archive directory if it doesn't exist
+mkdir -p "$archive_dir"
+
+# Get today's date in yyyy-mm-dd format
+today_date=$(date +"%Y-%m-%d")
+
+# Create the archive filename with today's date
+archive_filename="gradle_archive_$today_date.tar"
+
+# Create a full path for the archive file
+archive_path="$archive_dir/$archive_filename"
+
+echo "Archiving $source_dir to $archive_path..."
+
+# Archive the source directory with .gradle at the root using tar
+tar -cf "$archive_path" -C "$(dirname $source_dir)" "$(basename $source_dir)"
+
+echo "Archiving complete."
+
+# List all files in the archive directory, sort them by name
+archive_files=($(ls -1 "$archive_dir" | sort))
+
+echo "List of archive files:"
+for file in "${archive_files[@]}"; do
+    echo "$file"
+done
+
+# Keep only the last two archive files
+if [ "${#archive_files[@]}" -gt $backup_to_keep ]; then
+    files_to_delete=("${archive_files[@]::${#archive_files[@]}-$backup_to_keep}")
+    for file_to_delete in "${files_to_delete[@]}"; do
+        rm "$archive_dir/$file_to_delete"
+        echo "Deleted old archive: $file_to_delete"
+    done
+fi
+
+echo "Kept the last $backup_to_keep archives."
+
+
