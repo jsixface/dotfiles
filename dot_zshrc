@@ -130,7 +130,7 @@ if command -v docker &>$nul; then
 	alias dtail="docker logs --follow --tail 100"
 fi
 
-update-sw () {
+swupdate () {
 	if [[ `uname` = "Darwin" ]]; then
 		brew update && brew upgrade && brew cleanup --prune=all && softwareupdate --install --all
 	elif command -v apt &>$nul ; then
