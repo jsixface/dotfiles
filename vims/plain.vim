@@ -43,9 +43,6 @@ set gdefault 		" set the global search by default
 
 " use the UTF-8 encoding standard
 set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-set bomb
 set binary
 set nrformats-=octal " Do not treat numbers starting with 0 as octal"
 

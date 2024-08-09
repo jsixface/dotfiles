@@ -1,4 +1,4 @@
-"" Source your .vimrc
+﻿"" Source your .vimrc
 source ~/.config/nvim/plain.vim
 
 "" -- Suggested options --
