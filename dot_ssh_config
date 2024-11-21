@@ -1,8 +1,8 @@
-
-Host beryllium beryllium.* 192.168.123.10
+Host beryllium.home beryllium.* 192.168.123.10
+  HostName beryllium.home
   User sixface
 
-Host nitrogen nitrogen.*
+Host nitrogen.*
   User sixface
 
 Host arumugam.net sixface.in wcpgw.in carbon.* oxygen.*

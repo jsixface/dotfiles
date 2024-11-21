@@ -9,6 +9,7 @@ cp -v "${_curr_dir}"/bin/* ~/bin/
 [[ -d ~/.ssh/config.d ]] || mkdir -p ~/.ssh/config.d
 ln -vsf "$_curr_dir/dot_ssh_config" ~/.ssh/config
 ln -vsf "${_curr_dir}/dot_gitconfig" ~/.gitconfig
+ln -vsf "${_curr_dir}/dot_finicky.js" ~/.finicky.js
 ln -vsf "${_curr_dir}/dot_ideavimrc" ~/.ideavimrc
 ln -vsf "${_curr_dir}/dot_tmux.conf" ~/.tmux.conf
 
