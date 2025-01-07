@@ -1,9 +1,17 @@
+Host sole-galaxy.ts.net
+  HostName sole-galaxy.ts.net
+  User ubuntu@flourine
+
 Host beryllium.home beryllium.* 192.168.123.10
   HostName beryllium.home
   User sixface
 
 Host nitrogen.*
   User sixface
+
+Host flourine.*
+  HostName flourine.sole-galaxy.ts.net
+  User ubuntu
 
 Host arumugam.net sixface.in wcpgw.in carbon.* oxygen.*
 	User ubuntu

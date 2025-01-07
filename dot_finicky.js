@@ -9,6 +9,9 @@ module.exports = {
       match: [
         /.*openai.com/,
         /.*apple.com/,
+        /.*claude.ai/,
+        /.*openapi.com/,
+        /.*chatgpt.com/,
       ],
       browser: "Safari",
     },
@@ -25,6 +28,7 @@ module.exports = {
         /.*linkedin.com/,
         /.*facebook.com/,
         /.*instagram.com/,
+        /.*tailscale.com/,
         /.*zoho.com/,
       ],
       browser: "Microsoft Edge",

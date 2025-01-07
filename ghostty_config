@@ -1,0 +1,9 @@
+
+keybind = global:cmd+escape=toggle_quick_terminal
+
+
+window-width = 150
+window-height = 50
+font-size = 16
+theme = UltraDark
+

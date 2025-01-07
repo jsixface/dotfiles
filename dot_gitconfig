@@ -31,12 +31,11 @@
 	process = git-lfs filter-process
 	required = true
 
-[maintenance]
-	repo = /Users/aru/workspace/Dispense
-	repo = /Users/aru/workspace/Backend
-	repo = /Users/aru/workspace/backend_client
 [gpg]
 	format = ssh
 [pager]
 	branch = false
 	config = false
+[user]
+	name = Arumugam J
+	email = sixface@msn.com

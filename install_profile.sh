@@ -13,6 +13,9 @@ ln -vsf "${_curr_dir}/dot_finicky.js" ~/.finicky.js
 ln -vsf "${_curr_dir}/dot_ideavimrc" ~/.ideavimrc
 ln -vsf "${_curr_dir}/dot_tmux.conf" ~/.tmux.conf
 
+[[ -d ~/.config/ghostty ]] || mkdir -p ~/.config/ghostty
+ln -vsf "${_curr_dir}/dot_ghostty_config" ~/.config/ghostty/config
+
 if command -v zsh &> /dev/null; then
 	if [[ ! -d ~/.oh-my-zsh && -z "$ZSH" ]]
 	then
