@@ -1,6 +1,5 @@
-Host sole-galaxy.ts.net
-  HostName sole-galaxy.ts.net
-  User ubuntu@flourine
+Host *.sole-galaxy.ts.net
+  User ubuntu
 
 Host beryllium.home beryllium.* 192.168.123.10
   HostName beryllium.home

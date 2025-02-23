@@ -1,0 +1,135 @@
+{
+  "debug.console.fontSize": 16,
+  "editor.fontFamily": "Monaco, 'Fira Code', 'Meslo LG M'",
+  "editor.rulers": [100],
+  "editor.wordWrap": "on",
+  "extensions.ignoreRecommendations": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 30000,
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/._sync_*": true,
+    "**/.sync_*": true
+  },
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "go.useLanguageServer": true,
+  "jupyter.appendResults": true,
+  "python.autoComplete.addBrackets": true,
+  "python.autoComplete.preloadModules": [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "sklearn"
+  ],
+  "python.formatting.provider": "yapf",
+  "python.jediEnabled": false,
+  "python.languageServer": "Default",
+  "python.workspaceSymbols.exclusionPatterns": [],
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.preferredDarkColorTheme": "Gruvbox Dark Hard",
+  "workbench.preferredLightColorTheme": "Gruvbox Dark Medium",
+  "workbench.colorTheme": "Solarized Light",
+  "window.autoDetectColorScheme": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "update.mode": "manual",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.indent": 5,
+  "python.analysis.extraPaths": [
+    "${workspaceRoot}/lib/python3.6/site-packages/"
+  ],
+  "python.analysis.completeFunctionParens": true,
+  "git.allowForcePush": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.colorCustomizations": {
+    "editor.findMatchBackground": "#7597ab",
+    "editor.findMatchHighlightBackground": "#7ebfb3",
+    "editor.selectionBackground": "#83a0b1",
+    "editor.selectionHighlightBackground": "#7ebfb3"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "editor.fontSize": 14,
+  "files.maxMemoryForLargeFilesMB": 5096,
+  "editor.multiCursorLimit": 100000,
+  "remote.SSH.defaultForwardedPorts": [],
+  "remote.SSH.enableX11Forwarding": false,
+  "remote.SSH.remoteServerListenOnSocket": true,
+  "remote.SSH.remotePlatform": {
+    "192.168.123.4": "linux",
+    "192.168.123.10": "linux",
+    "beryllium.home": "linux",
+    "skynet.home": "linux",
+    "wcpgw.in": "linux",
+    "beryllium": "linux",
+    "beryllium.sole-galaxy.ts.net": "linux",
+    "sixface.in": "linux",
+    "helium.home": "linux",
+    "flourine.sole-galaxy.ts.net": "linux",
+    "sodium.sole-galaxy.ts.net": "linux"
+  },
+  "terminal.integrated.fontSize": 14,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+"editor.accessibilitySupport": "off",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  "remote.SSH.enableAgentForwarding": false,
+  "files.associations": {
+    "*.env": "properties"
+  },
+  "files.insertFinalNewline": true,
+  "docker.containers.label": "ContainerName",
+  "explorer.compactFolders": false,
+  "workbench.editor.empty.hint": "hidden",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "circleci.hostUrl": "",
+  "circleci.ssh.privateKey.github": "/Users/aru/.ssh/bevi-github",
+  "circleci.ssh.terminalOrRemoteWindow": "In a terminal",
+  "circleci.notifications.areActive": "no",
+  "circleci.notifications.mute": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "repositories": false,
+    "searchAndCompare": false,
+    "launchpad": true
+  },
+  "diffEditor.ignoreTrimWhitespace": true
+}
