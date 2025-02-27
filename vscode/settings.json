@@ -33,7 +33,7 @@
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
   "workbench.preferredDarkColorTheme": "Gruvbox Dark Hard",
-  "workbench.preferredLightColorTheme": "Gruvbox Dark Medium",
+  "workbench.preferredLightColorTheme": "Gruvbox Dark Hard",
   "workbench.colorTheme": "Solarized Light",
   "window.autoDetectColorScheme": true,
   "telemetry.enableCrashReporter": false,
@@ -131,5 +131,8 @@
     "searchAndCompare": false,
     "launchpad": true
   },
-  "diffEditor.ignoreTrimWhitespace": true
+  "diffEditor.ignoreTrimWhitespace": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
