@@ -8,10 +8,13 @@ module.exports = {
       // Open apple.com and example.com urls in Safari
       match: [
         /.*openai.com/,
-        /.*apple.com/,
-        /.*claude.ai/,
-        /.*openapi.com/,
         /.*chatgpt.com/,
+        /.*claude.ai/,
+        /.*apple.com/,
+        /discover.*.com/,
+        /chase.com/,
+        /americanexpress/,
+        /bank.com/,
       ],
       browser: "Safari",
     },
