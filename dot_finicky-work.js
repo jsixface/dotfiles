@@ -20,10 +20,14 @@ module.exports = {
     },
     {
       match: [
+        /.*google.com/,
         /google/,
         /intuit/,
         /postman/,
         /slack/,
+        /codium/,
+        /qodo/,
+        /pointingpoker.com/,
       ],
       browser: "Google Chrome",
     },

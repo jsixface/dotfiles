@@ -10,8 +10,6 @@
 	showtrackedignored = ls-files -i --exclude-standard
 [push]
 	default = simple
-[credential]
-	helper = store
 [core]
 	quotepath = false
 	eol = lf
@@ -37,5 +35,4 @@
 	branch = false
 	config = false
 [user]
-	name = Arumugam J
-	email = sixface@msn.com
+	name = Arumugam Jeganathan
