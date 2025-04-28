@@ -16,6 +16,9 @@ ln -vsf "${_curr_dir}/dot_gitconfig" ~/.gitconfig
 ln -vsf "${_curr_dir}/dot_ideavimrc" ~/.ideavimrc
 ln -vsf "${_curr_dir}/dot_tmux.conf" ~/.tmux.conf
 
+[[ -d ~/.gradle/init.d ]] || mkdir -p ~/.gradle/init.d
+ln -vsf "${_curr_dir}/dot_gradle_init.d_local-properties.gradle.kts" ~/.gradle/init.d/local-properties.gradle.kts
+
 if [[ "$_work" == 'y' ]]; then
 	ln -vsf "${_curr_dir}/dot_finicky-work.js" ~/.finicky.js
 else 
