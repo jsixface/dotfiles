@@ -1,6 +1,6 @@
 // ~/.finicky.js
 
-module.exports = {
+export default {
   defaultBrowser: "Firefox",
 
   handlers: [
