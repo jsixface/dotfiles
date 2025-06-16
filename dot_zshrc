@@ -40,7 +40,9 @@ command -v systemctl &>$nul && plugins+=( systemd )
 source $ZSH/oh-my-zsh.sh
 
 # To bind ctrl-space to accept autosuggest
-bindkey '^ ' autosuggest-accept
+#bindkey '^ ' autosuggest-accept # Ctrl+Space
+bindkey '^[[Z' autosuggest-accept # Shift+Space
+
 command -v zoxide &>$nul && eval "$(zoxide init --cmd j zsh)"
 export PROMPT="%{$fg[green]%}%D{%H:%M:%S} %{$reset_color%}%{$fg_bold[red]%}♠ %m %{$reset_color%}%{$fg[green]%}%3~ %{$fg_bold[yellow]%}⇒ %{$reset_color%}"
 
