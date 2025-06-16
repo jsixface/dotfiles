@@ -40,7 +40,7 @@ command -v systemctl &>$nul && plugins+=( systemd )
 source $ZSH/oh-my-zsh.sh
 
 # To bind ctrl-space to accept autosuggest
-#bindkey '^ ' autosuggest-accept # Ctrl+Space
+bindkey '^ ' autosuggest-accept # Ctrl+Space
 bindkey '^[[Z' autosuggest-accept # Shift+Space
 
 command -v zoxide &>$nul && eval "$(zoxide init --cmd j zsh)"
