@@ -130,6 +130,7 @@ if command -v docker &>$nul; then
 	alias dps='docker ps --format="table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.ID}}"'
 	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
 	alias dtail="docker logs --follow --tail 100"
+	alias images='rg --no-filename --no-line-number -r "" --trim image: /opt/docker* |sort|uniq'
 fi
 
 swupdate () {
