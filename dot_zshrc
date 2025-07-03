@@ -61,13 +61,20 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Aliases
+if [[ `uname` = Linux ]]; then
+	alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs -x overlay"
+else 
+	# -G option for ls is for colors in mac but not in linux
+	alias ls="ls -G"
+fi
+
 alias -g G='| grep -i'
-alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs -x overlay"
 alias dig="dig +nocmd +noall +answer"
 alias gca='git commit -a'
 alias glo='git log --oneline --decorate -10'
-alias grep='grep --color'
 alias gst='git status -bs'
+alias yolo='git add .; git commit -am "betterer code"'
+alias grep='grep --color'
 alias gw="./gradlew"
 alias l='ls -lFh'     #size,show type,human readable
 alias lh='ls -lAFh'   #long list,show almost all,show type,human readable
@@ -87,13 +94,10 @@ alias tarc='tar -cvf'
 alias tarz='tar -czvf'
 alias untar="tar -xvf"
 alias untarz="tar -xzvf"
-alias yolo='git add .; git commit -am "betterer code"'
 
 command -v fdfind &> $nul && alias fd=fdfind
 command -v fnm &> $nul && alias nvm=fnm && eval "$(fnm env )"
 command -v batcat &>$nul && alias bat=batcat
-# -G option for ls is for colors in mac but not in linux
-[[ `uname` = Darwin ]] && alias ls="ls -G"
 
 # Prefer neovim > vim > vi
 if command -v nvim &> $nul || command -v neovim &> $nul; then
