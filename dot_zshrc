@@ -29,7 +29,7 @@ plugs=(\
         zsh-autosuggestions \
         zsh-dircolors-solarized )
 
-for plug ($plugs); do
+for plug in "${plugs[@]}"; do
   [[ -d $ZSH/plugins/$plug || -d $ZSH/custom/plugins/$plug ]] && plugins+=($plug)
 done
 
@@ -45,6 +45,10 @@ bindkey '^[[Z' autosuggest-accept # Shift+Space
 
 command -v zoxide &>$nul && eval "$(zoxide init --cmd j zsh)"
 export PROMPT="%{$fg[green]%}%D{%H:%M:%S} %{$reset_color%}%{$fg_bold[red]%}♠ %m %{$reset_color%}%{$fg[green]%}%3~ %{$fg_bold[yellow]%}⇒ %{$reset_color%}"
+export SUPERUSER_PROMPT='%{$fg_bold[magenta]%}⚡ %n@%m %{$fg[cyan]%}%3~ %{$fg_bold[yellow]%}# %{$reset_color%}'
+if [[ $EUID -eq 0 ]]; then
+  export PROMPT="$SUPERUSER_PROMPT"
+fi
 
 # Set the default editor
 export EDITOR=$(command -vp nvim 2> $nul || command -vp vi 2> $nul)
@@ -61,7 +65,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Aliases
-if [[ `uname` = Linux ]]; then
+if [[ $(uname) = Linux ]]; then
 	alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs -x overlay"
 else 
 	# -G option for ls is for colors in mac but not in linux
@@ -138,7 +142,7 @@ if command -v docker &>$nul; then
 fi
 
 swupdate () {
-	if [[ `uname` = "Darwin" ]]; then
+	if [[ $(uname) = "Darwin" ]]; then
 		brew update && brew upgrade && brew cleanup --prune=all # && softwareupdate --install --all
 	elif command -v apt &>$nul ; then
 		sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y
