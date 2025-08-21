@@ -1,18 +1,11 @@
 #!/bin/bash
 
-cd "`dirname $0`"
-_gitdir=$(readlink -f $PWD)
-
-[[ -d ~/.config ]] || mkdir ~/.config
-ln -sf ${_gitdir}/vims ~/.config/nvim
-
+_gitdir=$(readlink -f "$(dirname "$0")/..")
 which nvim > /dev/null && _nvim_installed=yes
 
 if [[ -z $_nvim_installed ]]
 then
     # NeoVim not installed
     echo NeoVim not installed 
-    ln -s ${_gitdir}/vims/init.vim ~/.vimrc
+    ln -s "${_gitdir}"/vim/.config/nvim/init.vim ~/.vimrc
 fi
-
-
