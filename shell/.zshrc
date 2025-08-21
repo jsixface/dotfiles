@@ -165,6 +165,38 @@ else
 	alias dush="du -sh"
 fi
 
+
+
+# Define plugin loading function
+function load_directory_specific_plugins() {
+  case "$PWD" in
+    *"/mc")
+      	omz plugin load ansible
+		export ANSIBLE_PLUGIN_LOADED=1
+        echo "[ansible plugin loaded]"
+      ;;
+    "$HOME/code/otherproject"*)
+      if [[ -z "$OTHER_PLUGIN_LOADED" ]]; then
+        source "$ZSH_CUSTOM_PLUGINS/other/other.plugin.zsh"
+        export OTHER_PLUGIN_LOADED=1
+        echo "[other plugin loaded]"
+      fi
+      ;;
+    *)
+      # Optional: Reset flags or unload plugins (advanced)
+      ;;
+  esac
+}
+
+
+function chpwd() {
+  load_directory_specific_plugins
+}
+
+# Also run once when terminal opens (in case you start in the project dir)
+load_directory_specific_plugins
+
+
 function lstar() {
 	tar -tf $1 |less
 }

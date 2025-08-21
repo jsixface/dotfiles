@@ -48,6 +48,7 @@ safe_unlink "~/.tmux.conf" "$_curr_dir/dot_tmux.conf"
 safe_unlink "~/.gradle/init.d/local-properties.gradle.kts" "$_curr_dir/dot_gradle_init.d_local-properties.gradle.kts"
 safe_unlink "~/.config/ghostty/config" "$_curr_dir/dot_ghostty_config"
 safe_unlink "~/.config/git/ignore" "$_curr_dir/dot_config_git_ignore"
+safe_unlink "~/.config/nvim" "$_curr_dir/vims"
 safe_unlink "~/.zshrc" "$_curr_dir/dot_zshrc"
 
 # Special handling for .finicky.js as it can point to two different files
