@@ -1,4 +1,3 @@
-vim.cmd('colorscheme pablo')
 
 vim.cmd('syntax enable')
 vim.cmd('syntax on')
@@ -7,6 +6,7 @@ vim.o.showcmd = true
 vim.api.nvim_create_autocmd("FileType", { pattern = "yaml", command = "setlocal ts=2 sts=2 sw=2 expandtab" })
 vim.api.nvim_create_autocmd("FileType", { pattern = "yml", command = "setlocal ts=2 sts=2 sw=2 expandtab" })
 
+vim.opt.swapfile = false
 vim.o.autoread = true
 vim.o.backspace = 'indent,eol,start'
 
