@@ -1,0 +1,92 @@
+
+_old=$n
+n=/dev/null
+
+swupdate () {
+	if [[ $(uname) = "Darwin" ]]; then
+		brew update && brew upgrade && brew cleanup --prune=all # && softwareupdate --install --all
+	elif command -v apt &>$n ; then
+		sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y
+		if command -v snap &>$n; then
+			sudo snap refresh
+		fi
+	elif command -v zypper &>$n ; then
+		sudo zypper dist-upgrade
+		for i in $(zypper packages --unneeded | grep '|' | awk -F'|' '{print $3}' | grep -v Name)
+		do
+			echo sudo zypper remove --clean-deps -y $i
+			sudo zypper remove --clean-deps -y $i
+		done
+	fi
+}
+
+
+# Define plugin loading function
+function load_directory_specific_plugins() {
+  case "$PWD" in
+    *"/mc")
+      	omz plugin load ansible
+		export ANSIBLE_PLUGIN_LOADED=1
+        echo "[ansible plugin loaded]"
+      ;;
+    "$HOME/code/otherproject"*)
+      if [[ -z "$OTHER_PLUGIN_LOADED" ]]; then
+        source "$ZSH_CUSTOM_PLUGINS/other/other.plugin.zsh"
+        export OTHER_PLUGIN_LOADED=1
+        echo "[other plugin loaded]"
+      fi
+      ;;
+    *)
+      # Optional: Reset flags or unload plugins (advanced)
+      ;;
+  esac
+}
+
+
+function chpwd() {
+  load_directory_specific_plugins
+}
+
+# Also run once when terminal opens (in case you start in the project dir)
+load_directory_specific_plugins
+
+
+function lstar() {
+	tar -tf $1 |less
+}
+
+function cd() {
+	case $# in
+		0)
+			builtin cd
+			;;
+
+		1)
+			builtin cd $1
+			ls
+			;;
+		*)
+			;;
+	esac
+}
+
+function levelup() {
+	case $1 in
+		[1-9]* )
+			local i=$1
+			while [[ $i -gt 1 ]]; do
+				builtin cd ..
+				i=$(( $i - 1 ))
+			done
+			cd ..
+			;;
+		*)
+			cd ..
+			;;
+	esac
+}
+alias ..=levelup
+
+
+n=$_old
+unset _old

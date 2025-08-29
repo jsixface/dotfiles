@@ -1,0 +1,90 @@
+# Aliases
+
+_old=$n
+n=/dev/null
+
+if [[ $(uname) = Linux ]]; then
+	alias df="df -h -x tmpfs -T -x squashfs -x devtmpfs -x overlay"
+else 
+	# -G option for ls is for colors in mac but not in linux
+	alias ls="ls -G"
+fi
+
+alias -g G='| grep -i'
+alias dig="dig +nocmd +noall +answer"
+alias gca='git commit -a'
+alias glo='git log --oneline --decorate -10'
+alias gst='git status -bs'
+alias yolo='git add .; git commit -am "betterer code"'
+alias grep='grep --color'
+alias gw="./gradlew"
+alias l='ls -lFh'     #size,show type,human readable
+alias lh='ls -lAFh'   #long list,show almost all,show type,human readable
+alias ll='ls -l'      #long list
+alias lr='ls -lrt'
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias path='echo $PATH | sed "s/:/\n/g"| sort' # Quick display path
+alias ping="ping -c 4"
+alias please=sudo
+alias psef="ps -ef |grep -v grep | grep -i"
+alias rf="rm -rf"
+alias groot="sudo su"
+alias t2='tree -L 2'
+alias t3='tree -L 3'
+alias t=tree
+alias tarc='tar -cvf'
+alias tarz='tar -czvf'
+alias untar="tar -xvf"
+alias untarz="tar -xzvf"
+
+command -v fdfind &> $n && alias fd=fdfind
+command -v fnm &> $n && alias nvm=fnm && eval "$(fnm env )"
+command -v batcat &>$n && alias bat=batcat
+
+# Prefer neovim > vim > vi
+if command -v nvim &> $n || command -v neovim &> $n; then
+	alias vi=nvim
+	alias vim=nvim
+elif command -v vim &> $n; then
+	alias vi=vim
+fi
+
+if command -v dust &>$n; then
+	alias dush='dust --no-percent-bars --depth 0'
+else
+	alias dush="du -sh"
+fi
+
+if command -v bat &>$n; then
+	lesscmd=$(command -v -p less)
+	export BAT_STYLE=grid,header,snip
+	export BAT_THEME=gruvbox-dark
+	export BAT_PAGER="$lesscmd -R"
+	alias -g L='| bat'
+	alias -g LL='2>&1 | bat'
+	alias les=$lesscmd
+	alias less='bat --paging=always'
+	alias cat='bat --paging=never'
+else
+	alias -g L="| less -R"
+	alias -g LL="2>&1 | less"
+fi
+
+if command -v docker &>$n; then
+	alias dkr='docker run -it --rm'
+	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v /etc/passwd:/etc/passwd --user $myid'
+	alias dps='docker ps --format="table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.ID}}"'
+	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
+	alias dtail="docker logs --follow --tail 100"
+	alias images='rg --no-filename --no-line-number -r "" --trim image: /opt/docker* |sort|uniq'
+fi
+
+if command -v dust &> $n; then
+	alias dush='dust --no-percent-bars --depth 0'
+else
+	alias dush="du -sh"
+fi
+
+
+n=$_old
+unset _old
