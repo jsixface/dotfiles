@@ -25,7 +25,7 @@ alias lr='ls -lrt'
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 alias path='echo $PATH | sed "s/:/\n/g"| sort' # Quick display path
 alias ping="ping -c 4"
-alias please=sudo
+alias please='sudo env PATH=$PATH'
 alias psef="ps -ef |grep -v grep | grep -i"
 alias rf="rm -rf"
 alias groot="sudo su"
