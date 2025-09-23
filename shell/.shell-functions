@@ -1,8 +1,8 @@
 
 _old=$n
-n=/dev/null
 
 swupdate () {
+	local n=/dev/null
 	if [[ $(uname) = "Darwin" ]]; then
 		brew update && brew upgrade && brew cleanup --prune=all # && softwareupdate --install --all
 	elif command -v apt &>$n ; then
