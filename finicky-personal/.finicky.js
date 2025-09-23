@@ -2,15 +2,24 @@
 
 export default {
   defaultBrowser: "Firefox",
-
+  rewrite: [
+    {
+      // Redirect all x.com urls to use xcancel.com
+      match: "x.com/*",
+      url: (url) => {
+        url.host = "xcancel.com";
+        return url;
+      },
+    },
+  ],
   handlers: [
     {
       // Open apple.com and example.com urls in Safari
       match: [
         /.*openai.com/,
-        /.*chatgpt.com/,
         /.*claude.ai/,
         /.*apple.com/,
+        /^https?:\/\/.*chatgpt\.com\/.*$/,  // Matches http or https URLs
         // /discover.*.com/,
         // /chase.com/,
         // /americanexpress/,
@@ -28,6 +37,7 @@ export default {
       match: [
         "google.com/*", // match google.com urls
         "*.google.com/*", // match google.com subdomains
+        "*.gle/*",
         /.*linkedin.com/,
         /.*facebook.com/,
         /.*instagram.com/,
