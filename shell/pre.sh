@@ -16,4 +16,9 @@ if command -v zsh &> /dev/null; then
 	if [[ ! -L $RCFILE && -f $RCFILE ]]; then
 		mv -v $RCFILE $RCFILE.$(date +%s)
 	fi
+
+	# Tell git to ignore future modifications to .zshrc in this repository
+	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+		git update-index --skip-worktree .zshrc
+	fi
 fi
