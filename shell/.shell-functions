@@ -24,7 +24,7 @@ swupdate () {
 # Define plugin loading function
 function load_directory_specific_plugins() {
   case "$PWD" in
-    *"/mc")
+    *"/ansible")
       	omz plugin load ansible
 		export ANSIBLE_PLUGIN_LOADED=1
         echo "[ansible plugin loaded]"

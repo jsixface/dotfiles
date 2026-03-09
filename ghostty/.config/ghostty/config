@@ -1,9 +1,11 @@
 
 keybind = global:cmd+escape=toggle_quick_terminal
 
+quick-terminal-size = 100%,100%
 
-window-width = 150
-window-height = 50
+# window-width = 150
+# window-height = 50
 font-size = 16
-theme = UltraDark
+shell-integration-features = sudo,ssh-env,title
 
+theme = Gruvbox Material Dark
