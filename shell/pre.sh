@@ -11,4 +11,9 @@ if command -v zsh &> /dev/null; then
     if [[ ! -d "$AUTOSUGG_DIR" || -z "$(ls -A "$AUTOSUGG_DIR")" ]]; then
         git clone https://github.com/zsh-users/zsh-autosuggestions "$AUTOSUGG_DIR"
     fi
+
+	RCFILE=$HOME/.zshrc
+	if [[ ! -L $RCFILE && -f $RCFILE ]]; then
+		mv -v $RCFILE $RCFILE.$(date +%s)
+	fi
 fi
