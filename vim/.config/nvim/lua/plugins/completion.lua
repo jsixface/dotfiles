@@ -4,7 +4,8 @@ return {
     dependencies = { -- main one
     {
         "ms-jpq/coq_nvim",
-        branch = "coq"
+        branch = "coq",
+        build = ":COQdeps"
     }, { -- 9000+ Snippets
         "ms-jpq/coq.artifacts",
         branch = "artifacts"
