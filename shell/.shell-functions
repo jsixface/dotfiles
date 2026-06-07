@@ -4,9 +4,16 @@ _old=$n
 swupdate () {
 	local n=/dev/null
 	if [[ $(uname) = "Darwin" ]]; then
-		brew update && brew upgrade && brew cleanup --prune=all # && softwareupdate --install --all
+		brew update 
+		brew upgrade 
+		brew cleanup --prune=all 
+		# softwareupdate --install --all
 	elif command -v apt &>$n ; then
-		sudo apt update && apt list --upgradable && sudo apt dist-upgrade -y && sudo apt autoremove -y
+		sudo apt update
+		APT_PAGER= apt list --upgradable 
+		sudo apt dist-upgrade -y 
+		sudo apt autoremove -y
+
 		if command -v snap &>$n; then
 			sudo snap refresh
 		fi
