@@ -79,11 +79,7 @@ if command -v docker &>$n; then
 	alias images='rg --no-filename --no-line-number -r "" --trim image: /opt/docker* |sort|uniq'
 fi
 
-if command -v dust &> $n; then
-	alias dush='dust --no-percent-bars --depth 0'
-else
-	alias dush="du -sh"
-fi
+alias edit="fzf --bind 'enter:become(nvim {})'"
 
 
 n=$_old
