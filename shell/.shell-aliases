@@ -74,7 +74,7 @@ if command -v docker &>$n; then
 	alias dkr='docker run -it --rm'
 	alias dkrme='myid="$(id -u):$(id -g)"; docker run --rm -it -v /etc/passwd:/etc/passwd --user $myid'
 	alias dps='docker ps --format="table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.ID}}" | grep -v NAMES | sort'
-	alias dp='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
+	alias dp='docker ps --format="table {{.Names}}\t{{.Status}}" |grep -vi names'
 	alias dtail="docker logs --follow --tail 100"
 	alias images='rg --no-filename --no-line-number -r "" --trim image: /opt/docker* |sort|uniq'
 fi
