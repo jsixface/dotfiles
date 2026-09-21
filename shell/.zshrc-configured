@@ -1,9 +1,21 @@
 # See https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
 
-[[ -d /usr/local/go/bin ]] && export PATH="/usr/local/go/bin:$PATH"
-[[ -d /opt/homebrew/bin ]] && export PATH="/opt/homebrew/bin:$PATH"
-[[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
-[[ -d $HOME/bin ]] && export PATH="$HOME/bin:$PATH"
+# Non-login shells (herdr panes, tmux, editor terminals) start with a minimal
+# PATH that lacks /usr/local/bin, so tools installed there (e.g. zoxide) would
+# be invisible below. Ensure the standard locations are present early.
+custom_paths=(
+	$HOME/bin
+	$HOME/go/bin
+	$HOME/.local/bin
+	/opt/homebrew/bin
+	/usr/local/go/bin
+	/usr/local/bin
+	/usr/local/sbin
+)
+for d in "${custom_paths[@]}"; do
+  [[ -d $d ]] && [[ ":$PATH:" != *":$d:"* ]] && export PATH="$d:$PATH"
+done
+
 [[ -f $HOME/.local/zprofile ]] && source $HOME/.local/zprofile
 [[ -z "$ZSH" ]] && export ZSH="$HOME/.oh-my-zsh"
 export LC_ALL=en_US.UTF-8
