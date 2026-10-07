@@ -34,8 +34,6 @@ ZSH_THEME=simple
 
 # Add plugins. The local zprofile might initialize some
 plugs=(\
-        docker \
-        docker-compose \
         git \
         systemd \
         zsh-autosuggestions \
@@ -48,6 +46,7 @@ done
 command -v fzf &> $nul && plugins+=( fzf )
 command -v firewall-cmd &>$nul && plugins+=( firewalld )
 command -v systemctl &>$nul && plugins+=( systemd )
+command -v docker &>$nul && plugins+=( docker docker-compose )
 
 source $ZSH/oh-my-zsh.sh
 
