@@ -18,6 +18,7 @@ export default {
       match: [
         /.*openai.com/,
         /.*claude.ai/,
+        /.*\.claude.com/,
         /.*apple.com/,
         /^https?:\/\/.*chatgpt\.com\/.*$/,  // Matches http or https URLs
         "google.com/*", // match google.com urls

@@ -1,11 +1,16 @@
-keybind = global:cmd+escape=toggle_quick_terminal
+keybind = global:cmd+f1=toggle_quick_terminal
 
-quick-terminal-size = 100%,100%
-
-# window-width = 150
-# window-height = 50
 font-size = 16
 font-family = "JetBrainsMono Nerd Font Mono"
-shell-integration-features = sudo,ssh-env
+
+# Shell Integration
+shell-integration-features = sudo,ssh-env,title
+
+quick-terminal-size = 100%,100%
+quick-terminal-position = center
+quick-terminal-animation-duration = 0.15
 
 theme = Gruvbox Material Dark
+initial-window = false
+
+copy-on-select = clipboard
