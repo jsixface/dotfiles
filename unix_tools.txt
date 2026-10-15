@@ -7,5 +7,6 @@ ripgrep|BurntSushi|rg|rg
 tealdeer|dbrgn||tldr
 xh|ducaale|xh|xh
 zoxide|ajeetdsouza|zoxide|zoxide
+asdf|asdf-vm|asdf|asdf
 # Last line should be empty for `read` to work
 # leave pattern to be empty to not extract tar
